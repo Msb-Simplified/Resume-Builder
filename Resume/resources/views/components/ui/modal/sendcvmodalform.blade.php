@@ -42,6 +42,5 @@
 @once
 @push('scripts')
 <script src="{{ url('/Asset/js/user/app.js') }}"></script>
-<script src="{{ url('/Asset/js/user/usersignup.js') }}"></script>
 @endpush
 @endonce

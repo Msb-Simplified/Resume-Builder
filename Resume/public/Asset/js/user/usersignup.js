@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    
+    // ############### Signup Request ########################
     $(".usersignupbtn").click(function (e) {
         e.preventDefault();
         isUsernameValid();
@@ -36,6 +39,11 @@ $(document).ready(function () {
             });
         }
     });
+
+
+
+
+
 
     // Validate Username
     $(".usercheck").hide();

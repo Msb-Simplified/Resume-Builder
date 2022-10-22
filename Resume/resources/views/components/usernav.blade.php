@@ -4,10 +4,10 @@
             <p>Resume Builder</p>
         </div>
         <div class="right">
-            @if(session()->get('usersession')=="")
+            @if(session()->get('usersession')!="")
 
             @php
-              // $userdata = \App\Models\User::where('username',session()->get('userloginsessiondata'))->first();
+              $userdata = \App\Models\User::where('username',session()->get('userloginsessiondata'))->first();
             @endphp 
             <form id="logout-form" style="display: none;" method="POST" action="/logout">
                 @csrf
@@ -22,7 +22,7 @@
                   <x-li href="/makecv">Create</x-li>
                   <x-toggleModal id="sendcvmodalform">Send</x-toggleModal>
                   <x-li href="javascript:void" onclick="$('#logout-form').submit();">Logout</x-li>
-                  {{-- <x-li href="/cv/{{ $userdata->id }}">Print</x-li> --}}
+                  <x-li href="/cv/{{ $userdata->id }}">Print</x-li>
                 </ul>
             </div>
             @else
