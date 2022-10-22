@@ -37,3 +37,9 @@
       <link rel="stylesheet" href="{{ url('/Asset/css/components/modal/loginmodal.css') }}">
     @endpush
 @endonce
+
+@once
+    @push('scripts')
+      <script src="{{ url('/Asset/js/user/userlogin.js') }}"></script>
+    @endpush
+@endonce
