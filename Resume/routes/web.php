@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () { return view('user.home');  });
 Route::post('/signup', [UserSignupController::class,'userregistration'])->name('signup');
 Route::post('/login', [UserLoginController::class,'userlogin'])->name('login');
+Route::post('/logout', [UserLoginController::class,'userlogout'])->name('logout');

@@ -3,8 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+
+
+
+
+
 
 class UserLoginController extends Controller
 {
@@ -43,5 +50,15 @@ class UserLoginController extends Controller
             return $notification;
         }
  
+    }
+
+    public function userlogout(){
+        Session::flush();      
+
+        $notification = array(
+            'message' => 'You are loged out',
+            'alert-type' => 'success'
+        );
+        return Redirect::to('/')->with($notification); 
     }
 }
