@@ -4,17 +4,16 @@ namespace App\View\Components\ui\form;
 
 use Illuminate\View\Component;
 
-class formGroup extends Component
+class errortext extends Component
 {
-    public $errortext;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($errorname=null)
+    public function __construct()
     {
-        $this->errortext = $errorname;
+        //
     }
 
     /**
@@ -24,6 +23,6 @@ class formGroup extends Component
      */
     public function render()
     {
-        return view('components.ui.form.form-group');
+        return view('components.ui.form.errortext');
     }
 }

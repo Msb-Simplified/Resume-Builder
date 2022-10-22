@@ -8,23 +8,23 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form id="userloginform">
-                    <x-formgroup errorname="loginusernamecheck">
+                <form id="usersignupform">
+                    <x-formgroup errorname="usercheck">
                         <x-groupprepend>
                             <span class="fas fa-envelope"></span>
                         </x-groupprepend>
-                        <x-inputField id="loginusername" type="text" placeholder="@Username" />
+                        <x-inputField id="signupusername" type="text" placeholder="@Username" />
                     </x-formgroup>
 
-                    <x-formgroup errorname="loginpasswordcheck">
+                    <x-formgroup errorname="passcheck">
                         <x-groupprepend>
                             <span class="fas fa-lock"></span>
                         </x-groupprepend>
-                        <x-inputField id="loginpassword" type="text" placeholder="Password" />
+                        <x-inputField id="signupuserpassword" type="text" placeholder="Password" />
                     </x-formgroup>
-                    
-                    <x-a class="signupmodalbtnopen control">Signup</x-a>
-                    <x-btn class="float-right userloginbtn">Login</x-btn>
+
+                    <x-a class="siginmodalbtnopen control">Login</x-a>
+                    <x-btn class="float-right usersignupbtn">Signup</x-btn>
                 </form>
             </div>
         </div>
@@ -33,7 +33,8 @@
 
 
 @once
-    @push('styles')
-      <link rel="stylesheet" href="{{ url('/Asset/css/components/modal/loginmodal.css') }}">
+    @push('scripts')
+      <script src="{{ url('/Asset/js/user/app.js') }}"></script>
+      <script src="{{ url('/Asset/js/user/usersignup.js') }}"></script>
     @endpush
 @endonce

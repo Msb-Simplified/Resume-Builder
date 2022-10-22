@@ -4,7 +4,7 @@
             <p>Resume Builder</p>
         </div>
         <div class="right">
-            @if(session()->get('usersession')!="")
+            @if(session()->get('usersession')=="")
 
             @php
               // $userdata = \App\Models\User::where('username',session()->get('userloginsessiondata'))->first();
@@ -20,7 +20,7 @@
                 <ul class="dropdown-menu" style="">
                   <x-li href="/" type="active">Component Li</x-li>
                   <x-li href="/makecv">Create</x-li>
-                  <x-toggleModal id="userloginmodal">Send</x-toggleModal>
+                  <x-toggleModal id="sendcvmodalform">Send</x-toggleModal>
                   <x-li href="javascript:void" onclick="$('#logout-form').submit();">Logout</x-li>
                   {{-- <x-li href="/cv/{{ $userdata->id }}">Print</x-li> --}}
                 </ul>
