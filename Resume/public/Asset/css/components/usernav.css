@@ -1,0 +1,84 @@
+.containers {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 3;
+  background-color: rgb(253, 253, 253);
+  height: 50px;
+}
+
+.topbar {
+  width: 900px;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.topbar .navs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.topbar .navs .left p {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.topbar .navs .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  cursor: pointer;
+}
+.topbar .navs .right #userloginmodal {
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 5px 5px;
+}
+.topbar .navs .right img {
+  height: 20x;
+  width: 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .topbar {
+    width: 350px !important;
+  }
+  .topbar .navs {
+    padding: 0px 5px !important;
+  }
+  .topbar .navs .left p {
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .topbar .navs .right {
+    width: 150px;
+  }
+  .topbar .navs .right button {
+    margin-left: 5px;
+    padding: 5px 5px;
+  }
+  .topbar .navs .right img {
+    height: 20x;
+    width: 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .topbar {
+    width: 400px;
+  }
+  .topbar .navs {
+    padding: 0 10px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .topbar {
+    width: 500px;
+  }
+}/*# sourceMappingURL=usernav.css.map */

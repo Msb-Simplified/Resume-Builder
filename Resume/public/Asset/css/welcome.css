@@ -1,0 +1,688 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 40px 0px;
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
+
+#loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75) url("/Asset/gif/loading.gif") no-repeat center center;
+  z-index: 10000;
+}
+
+.siginmodalbtnopen,
+.signupmodalbtnopen {
+  cursor: pointer;
+}
+
+.modal-content {
+  border-radius: 0px !important;
+}
+.modal-content .modal-header {
+  border-radius: 0px !important;
+  padding: 0 !important;
+}
+
+.btn {
+  border-radius: 0px !important;
+}
+
+.userloginheader {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background-color: #ffffff !important;
+  width: 100%;
+  padding: 0px 10px !important;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.userloginheader p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.userloginbtn {
+  float: right;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  border: none;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 5px 10px;
+}
+.userloginbtn .spinner-border {
+  display: none;
+  height: 15px;
+  width: 15px;
+}
+
+.usersignupbtn {
+  float: right;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  border: none;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 5px 10px;
+}
+.usersignupbtn .spinner-border {
+  display: none;
+  height: 15px;
+  width: 15px;
+}
+
+.userloginclosebtn {
+  float: right;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  border: none;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 5px 10px;
+}
+
+.containers {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 3;
+  background-color: rgb(253, 253, 253);
+  height: 50px;
+}
+
+.topbar {
+  width: 900px;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.topbar .navs {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.topbar .navs .left p {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.topbar .navs .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  cursor: pointer;
+}
+.topbar .navs .right #userloginmodal {
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 5px 5px;
+}
+.topbar .navs .right img {
+  height: 20x;
+  width: 20px;
+}
+
+.footer {
+  width: 1140px;
+  bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.footer p {
+  font-size: 18px;
+}
+
+.wrapper {
+  max-height: 1100px;
+  max-width: 900px;
+  margin: auto;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.wrapper .top {
+  display: flex;
+}
+.wrapper .top #leftBar {
+  flex: 0 0 40%;
+  max-width: 40%;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+.wrapper .top #leftBar #profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.wrapper .top #leftBar #profile .profileImage {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 10px 0px 10px 0px;
+}
+.wrapper .top #leftBar #profile .profileImage img {
+  height: 150px;
+  width: 150px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.wrapper .top #leftBar #profile .profileTitle {
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+}
+.wrapper .top #leftBar #profile .profileTitle .titleName {
+  color: rgb(0, 0, 0);
+  font-size: 30px;
+  font-weight: 900;
+}
+.wrapper .top #leftBar #profile .profileTitle .titleJob {
+  color: rgb(23, 23, 23);
+  font-size: 20px;
+  font-weight: normal;
+}
+.wrapper .top #leftBar #about .aboutTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.wrapper .top #leftBar #about .aboutTitle img.lineone {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 28px;
+  left: 0px;
+}
+.wrapper .top #leftBar #about .aboutTitle img.linetwo {
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 32px;
+  left: 0px;
+}
+.wrapper .top #leftBar #about .aboutText {
+  font-family: "Times New Roman", Times, serif;
+}
+.wrapper .top #leftBar #contact {
+  margin: 10px 0px 10px 0px;
+}
+.wrapper .top #leftBar #contact .contactTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.wrapper .top #leftBar #contact .contactTitle img.lineone {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 25px;
+  left: 0px;
+}
+.wrapper .top #leftBar #contact .contactTitle img.linetwo {
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+.wrapper .top #leftBar #contact .address p {
+  line-height: 10px;
+}
+.wrapper .top #leftBar #profilehandler {
+  margin: 10px 0px 10px 0px;
+}
+.wrapper .top #leftBar #profilehandler .handlerTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.wrapper .top #leftBar #profilehandler .handlerTitle img.lineone {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 25px;
+  left: 0px;
+}
+.wrapper .top #leftBar #profilehandler .handlerTitle img.linetwo {
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+.wrapper .top #leftBar #profilehandler .handlerAddress {
+  display: flex;
+  flex-wrap: wrap;
+}
+.wrapper .top #leftBar #profilehandler .handlerAddress p {
+  padding: 2px;
+  margin: 3px 0px 10px 0px;
+  display: flex;
+}
+.wrapper .top #leftBar #profilehandler .handlerAddress p a {
+  text-decoration: none;
+  background-color: #FFFFFF;
+  color: black;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+}
+.wrapper .top #leftBar #profilehandler .handlerAddress p img {
+  margin-bottom: 0px;
+}
+.wrapper .top #rightBar {
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin-left: 30px;
+}
+.wrapper .top #rightBar #education {
+  margin-bottom: 30px;
+}
+.wrapper .top #rightBar #education .educationTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  padding-bottom: 5px;
+}
+.wrapper .top #rightBar #education .educationTitle img.lineone {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 27px;
+  left: 0px;
+}
+.wrapper .top #rightBar #education .educationTitle img.linetwo {
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 32px;
+  left: 0px;
+}
+.wrapper .top #rightBar #education .content {
+  border-left: 2px solid #2b2b2b;
+}
+.wrapper .top #rightBar #education .content .item {
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-left: 15px;
+  position: relative;
+  line-height: 10px;
+}
+.wrapper .top #rightBar #education .content .item img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: -21px;
+}
+.wrapper .top #rightBar #education .content .item p.institute {
+  font-weight: 600;
+}
+.wrapper .top #rightBar #education .content .item p.year {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: -5px;
+}
+.wrapper .top #rightBar #experence {
+  margin-bottom: 30px;
+}
+.wrapper .top #rightBar #experence .experenceTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.wrapper .top #rightBar #experence .experenceTitle img.lineone {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+.wrapper .top #rightBar #experence .experenceTitle img.linetwo {
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 34px;
+  left: 0px;
+}
+.wrapper .top #rightBar #experence .content {
+  border-left: 2px solid #2b2b2b;
+}
+.wrapper .top #rightBar #experence .content .item {
+  margin-top: 10px;
+  margin-left: 15px;
+  position: relative;
+}
+.wrapper .top #rightBar #experence .content .item img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: -21px;
+}
+.wrapper .top #rightBar #experence .content .item p.institute {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.wrapper .top #rightBar #experence .content .item p.year {
+  font-size: 16px;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.wrapper .top #rightBar #experence .content .item:last-child p.year {
+  margin-bottom: 0px !important;
+}
+.wrapper .top #rightBar #skill {
+  margin: 10px 0px 10px 0px;
+}
+.wrapper .top #rightBar #skill .skillTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.wrapper .top #rightBar #skill .skillTitle img.lineone {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 25px;
+  left: 0px;
+}
+.wrapper .top #rightBar #skill .skillTitle img.linetwo {
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+.wrapper .top #rightBar #skill .skill-container {
+  width: 100%;
+}
+.wrapper .top #rightBar #skill .skill-container p {
+  margin-bottom: 5px;
+}
+.wrapper .top #rightBar #skill .skill-container .skill {
+  text-align: right;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: black;
+  margin-bottom: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  position: relative;
+}
+.wrapper .top #rightBar #skill .skill-container .skill span.first {
+  position: absolute;
+  left: 10px;
+}
+.wrapper .top #rightBar #skill .skill-container .skill span {
+  margin-right: 10px;
+}
+.wrapper .top #rightBar #skill .html {
+  width: 90%;
+}
+.wrapper .top #rightBar #skill .css {
+  width: 80%;
+}
+.wrapper .top #rightBar #skill .js {
+  width: 80%;
+}
+.wrapper .top #rightBar #skill .php {
+  width: 80%;
+}
+.wrapper .top #rightBar #skill .laravel {
+  width: 90%;
+}
+.wrapper .top #rightBar #skill .react {
+  width: 70%;
+}
+.wrapper .top #rightBar #skill .css {
+  width: 85%;
+}
+.wrapper .top #rightBar #skill .mysql {
+  width: 80%;
+}
+.wrapper .bottom #language .languageTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  position: relative;
+  padding-bottom: 10px;
+}
+.wrapper .bottom #language .languageTitle img.lineone {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 25px;
+  left: 0px;
+}
+.wrapper .bottom #language .languageTitle img.linetwo {
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+.wrapper .bottom #language .languageImg {
+  display: flex;
+  flex-wrap: wrap;
+}
+.wrapper .bottom #language .languageImg img {
+  margin-bottom: 5px;
+}
+.wrapper .bottom #tools .toolsTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  position: relative;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+.wrapper .bottom #tools .toolsTitle img.lineone {
+  height: 3px;
+  width: 30px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 25px;
+  left: 0px;
+}
+.wrapper .bottom #tools .toolsTitle img.linetwo {
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+.wrapper .bottom #tools .toolsIcon img {
+  margin-bottom: 5px;
+}
+.wrapper .bottom #profilehandler {
+  margin: 10px 0px 10px 0px;
+}
+.wrapper .bottom #profilehandler .handlerTitle {
+  color: rgb(180, 3, 3);
+  font-size: 20px;
+  font-weight: 900;
+  margin: 5px 0px 5px 0px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.wrapper .bottom #profilehandler .handlerTitle::before {
+  content: "";
+  height: 3px;
+  width: 20px;
+  background-color: rgb(180, 3, 3);
+  position: absolute;
+  top: 23px;
+  left: 0px;
+}
+.wrapper .bottom #profilehandler .handlerTitle::after {
+  content: "";
+  height: 3px;
+  width: 70px;
+  background-color: rgb(19, 18, 18);
+  position: absolute;
+  top: 25px;
+  left: 0px;
+}
+.wrapper .bottom #profilehandler .handlerAddress {
+  display: flex;
+  flex-wrap: wrap;
+}
+.wrapper .bottom #profilehandler .handlerAddress p {
+  padding: 2px;
+  margin: 10px 0px 10px 0px;
+  display: flex;
+}
+.wrapper .bottom #profilehandler .handlerAddress p a {
+  margin-top: -10px;
+  text-decoration: none;
+  background-color: #FFFFFF;
+  color: black;
+  padding: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+}
+.wrapper .bottom #profilehandler .handlerAddress p img {
+  margin-bottom: -3px;
+}
+
+@media screen and (max-width: 480px) {
+  .topbar {
+    width: 350px !important;
+  }
+  .topbar .navs {
+    padding: 0px 5px !important;
+  }
+  .topbar .navs .left p {
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .topbar .navs .right {
+    width: 150px;
+  }
+  .topbar .navs .right button {
+    margin-left: 5px;
+    padding: 5px 5px;
+  }
+  .topbar .navs .right img {
+    height: 20x;
+    width: 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .topbar {
+    width: 400px;
+  }
+  .topbar .navs {
+    padding: 0 10px;
+  }
+  #print {
+    height: 30px;
+    width: 30px;
+  }
+  #print img {
+    height: 15px;
+    width: 15px;
+  }
+  .wrapper .top {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .wrapper .top #leftBar {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0px 10px;
+  }
+  .wrapper .top #rightBar {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 0px;
+    padding: 0px 20px;
+  }
+  .wrapper .bottom {
+    padding: 0px 20px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .topbar {
+    width: 500px;
+  }
+}/*# sourceMappingURL=welcome.css.map */

@@ -1,0 +1,25 @@
+.userloginheader {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background-color: #ffffff !important;
+  width: 100%;
+  padding: 0px 10px !important;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.userloginheader p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.userloginbtn {
+  float: right;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  border: none;
+  margin-left: 10px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 5px 10px;
+}/*# sourceMappingURL=loginmodal.css.map */
