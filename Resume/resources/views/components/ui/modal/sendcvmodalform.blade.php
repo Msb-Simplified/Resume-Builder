@@ -41,6 +41,5 @@
 
 @once
 @push('scripts')
-<script src="{{ url('/Asset/js/user/app.js') }}"></script>
 @endpush
 @endonce
