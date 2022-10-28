@@ -1,4 +1,4 @@
-<div class="containers topbar">
+<div class="container topbar">
     <div class="navs">
         <div class="left">
             <p>Resume Builder</p>
@@ -9,7 +9,6 @@
             @php
               $userdata = \App\Models\User::where('username',session()->get('userloginsessiondata'))->first();
             @endphp 
-
             <div class="input-group-prepend">
                 <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
                     aria-expanded="false">Action</button>
@@ -18,6 +17,13 @@
                     <x-li href="/makecv">Create</x-li>
                   <x-li href="/cv/{{ $userdata->id }}">Print</x-li>
                   <x-toggleModal id="sendcvmodalform">Send</x-toggleModal>
+                  @if(basename(request()->path()) === 'makecv')
+                      <x-toggleModal id="setingsmodal">Edit</x-toggleModal>
+                  @endif
+
+
+
+
                   <x-li href="javascript:void" onclick="$('#logout-form').submit();">Logout</x-li>
                   <form id="logout-form" style="display: none;" method="POST" action="/logout">
                       @csrf

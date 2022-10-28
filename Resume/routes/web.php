@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CreateCvController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UserSignupController;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('user.home');  });
+
+Route::get('/', [HomeController::class,'homeview'])->name('homeview');
+// Route::get('/', function () { return view('user.home');  });
 Route::post('/signup', [UserSignupController::class,'userregistration'])->name('signup');
 Route::post('/login', [UserLoginController::class,'userlogin'])->name('login');
 Route::post('/logout', [UserLoginController::class,'userlogout'])->name('logout');
+
+
+Route::get('/makecv', [CreateCvController::class,'makecv'])->name('makecv');

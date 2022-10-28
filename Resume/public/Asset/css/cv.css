@@ -1,0 +1,556 @@
+.content-wrapper {
+    min-height: 1100px !important;
+    height: auto !important;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    height: auto !important;
+}
+
+
+#cvwrapper {
+    /* max-height: 1100px; */
+    /* max-width: 900px;
+    min-width: 700px; */
+    display: flex;
+    flex-direction: column;
+    /* border: 5px solid rgb(10, 97, 0); */
+    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
+    /* border: 2px solid red; */
+}
+
+#cvwrapper .top {
+    display: flex;
+}
+
+#cvwrapper .top #leftBar {
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+
+#cvwrapper .top #leftBar #profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+#cvwrapper .top #leftBar #profile .profileImage {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 10px 0px 10px 0px;
+}
+
+#cvwrapper .top #leftBar #profile .profileImage img {
+    height: 150px;
+    width: 150px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+#cvwrapper .top #leftBar #profile .profileTitle {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+}
+
+#cvwrapper .top #leftBar #profile .profileTitle .titleName {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: 900;
+}
+
+#cvwrapper .top #leftBar #profile .profileTitle .titleJob {
+    color: rgb(23, 23, 23);
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#cvwrapper .top #leftBar #about .aboutTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 5px 0px 5px 0px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#cvwrapper .top #leftBar #about .aboutTitle img.lineone {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(180, 3, 3);
+    position: absolute;
+    top: 28px;
+    left: 0px;
+}
+
+#cvwrapper .top #leftBar #about .aboutTitle img.linetwo {
+    height: 3px;
+    width: 70px;
+    background-color: rgb(19, 18, 18);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+}
+
+#cvwrapper .top #leftBar #about .aboutText {
+    font-family: "Times New Roman", Times, serif;
+}
+
+#cvwrapper .top #leftBar #contact {
+    margin: 10px 0px 10px 0px;
+}
+
+#cvwrapper .top #leftBar #contact .contactTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 5px 0px 5px 0px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#cvwrapper .top #leftBar #contact .contactTitle img.lineone {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(180, 3, 3);
+    position: absolute;
+    top: 28px;
+    left: 0px;
+}
+
+#cvwrapper .top #leftBar #contact .contactTitle img.linetwo {
+    height: 3px;
+    width: 70px;
+    background-color: rgb(19, 18, 18);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+}
+
+#cvwrapper .top #leftBar #profilehandler {
+    margin: 10px 0px 10px 0px;
+}
+
+#cvwrapper .top #leftBar #profilehandler .handlerTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 5px 0px 5px 0px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#cvwrapper .top #leftBar #profilehandler .handlerTitle img.lineone {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(180, 3, 3);
+    position: absolute;
+    top: 28px;
+    left: 0px;
+}
+
+#cvwrapper .top #leftBar #profilehandler .handlerTitle img.linetwo {
+    height: 3px;
+    width: 70px;
+    background-color: rgb(19, 18, 18);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+}
+
+#cvwrapper .top #leftBar #profilehandler .handlerAddress {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#cvwrapper .top #leftBar #profilehandler .handlerAddress .handlerdiv {
+    margin: 3px 5px 5px 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10%;
+}
+
+#cvwrapper .top #leftBar #profilehandler .handlerAddress .handlerdiv a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 5px;
+    background-color: #fffdfd;
+}
+
+#cvwrapper .top #leftBar #profilehandler .handlerAddress .handlerdiv img {
+    /* margin-bottom: -3px; */
+    /* margin-left: 5px; */
+}
+
+#cvwrapper .top #rightBar {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-left: 30px;
+}
+
+#cvwrapper .top #rightBar #education {
+    margin-bottom: 30px;
+}
+
+#cvwrapper .top #rightBar #education .educationTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 5px 0px 5px 0px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#cvwrapper .top #rightBar #education .educationTitle img.lineone {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(180, 3, 3);
+    position: absolute;
+    top: 28px;
+    left: 0px;
+}
+
+#cvwrapper .top #rightBar #education .educationTitle img.linetwo {
+    height: 3px;
+    width: 70px;
+    background-color: rgb(19, 18, 18);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+}
+
+#cvwrapper .top #rightBar #education .content {
+    border-left: 2px solid #2b2b2b;
+}
+
+#cvwrapper .top #rightBar #education .content .item {
+    margin-top: 10px;
+    margin-left: 15px;
+    line-height: 12px;
+    position: relative;
+    padding-bottom: 3px;
+}
+
+#cvwrapper .top #rightBar #education .content .item img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: -21px;
+}
+
+#cvwrapper .top #rightBar #education .content .item .institute {
+    /* padding-bottom: 2px; */
+    font-weight: 600;
+}
+
+#cvwrapper .top #rightBar #education .content .item p.year {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#cvwrapper .top #rightBar #experence {
+    margin-bottom: 30px;
+}
+
+#cvwrapper .top #rightBar #experence .experenceTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 5px 0px 5px 0px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#cvwrapper .top #rightBar #experence .experenceTitle img.lineone {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(180, 3, 3);
+    position: absolute;
+    top: 28px;
+    left: 0px;
+}
+
+#cvwrapper .top #rightBar #experence .experenceTitle img.linetwo {
+    height: 3px;
+    width: 70px;
+    background-color: rgb(19, 18, 18);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+}
+
+#cvwrapper .top #rightBar #experence .content {
+    border-left: 2px solid #2b2b2b;
+}
+
+#cvwrapper .top #rightBar #experence .content .item {
+    margin-top: 10px;
+    margin-left: 15px;
+    position: relative;
+}
+
+#cvwrapper .top #rightBar #experence .content .item img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: -21px;
+}
+
+#cvwrapper .top #rightBar #experence .content .item p.institute {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+#cvwrapper .top #rightBar #experence .content .item p.year {
+    font-size: 16px;
+    display: inline-block;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#cvwrapper .top #rightBar #experence .content .item:last-child p.year {
+    margin-bottom: 0px !important;
+}
+
+#cvwrapper .top #rightBar #skill {
+    margin: 10px 0px 10px 0px;
+}
+
+#cvwrapper .top #rightBar #skill .skillTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 5px 0px 5px 0px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#cvwrapper .top #rightBar #skill .skillTitle img.lineone {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(180, 3, 3);
+    position: absolute;
+    top: 28px;
+    left: 0px;
+}
+
+#cvwrapper .top #rightBar #skill .skillTitle img.linetwo {
+    height: 3px;
+    width: 70px;
+    background-color: rgb(19, 18, 18);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+}
+
+#cvwrapper .top #rightBar #skill .skill-container {
+    width: 100%;
+}
+
+#cvwrapper .top #rightBar #skill .skill-container p {
+    margin-bottom: 5px;
+}
+
+#cvwrapper .top #rightBar #skill .skill-container .skill {
+    text-align: right;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: black;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    position: relative;
+}
+
+#cvwrapper .top #rightBar #skill .skill-container .skill span.first {
+    position: absolute;
+    left: 10px;
+}
+
+#cvwrapper .top #rightBar #skill .skill-container .skill span {
+    margin-right: 10px;
+    font-weight: 800;
+}
+
+#cvwrapper .top #rightBar #skill .html {
+    width: 90%;
+}
+
+#cvwrapper .top #rightBar #skill .css {
+    width: 80%;
+}
+
+#cvwrapper .top #rightBar #skill .js {
+    width: 80%;
+}
+
+#cvwrapper .top #rightBar #skill .php {
+    width: 80%;
+}
+
+#cvwrapper .top #rightBar #skill .laravel {
+    width: 90%;
+}
+
+#cvwrapper .top #rightBar #skill .react {
+    width: 70%;
+}
+
+#cvwrapper .top #rightBar #skill .css {
+    width: 85%;
+}
+
+#cvwrapper .top #rightBar #skill .mysql {
+    width: 80%;
+}
+
+#cvwrapper .bottom #language .languageTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#cvwrapper .bottom #language .languageTitle img.lineone {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(180, 3, 3);
+    position: absolute;
+    top: 28px;
+    left: 0px;
+}
+
+#cvwrapper .bottom #language .languageTitle img.linetwo {
+    height: 3px;
+    width: 70px;
+    background-color: rgb(19, 18, 18);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+}
+
+#cvwrapper .bottom #language .languageImg {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#cvwrapper .bottom #language .languageImg img {
+    margin-bottom: 5px;
+}
+
+#cvwrapper .bottom #tools .toolsTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    position: relative;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+#cvwrapper .bottom #tools .toolsTitle img.lineone {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(180, 3, 3);
+    position: absolute;
+    top: 28px;
+    left: 0px;
+}
+
+#cvwrapper .bottom #tools .toolsTitle img.linetwo {
+    height: 3px;
+    width: 70px;
+    background-color: rgb(19, 18, 18);
+    position: absolute;
+    top: 32px;
+    left: 0px;
+}
+
+#cvwrapper .bottom #tools .toolsIcon img {
+    margin-bottom: 5px;
+}
+
+#cvwrapper .bottom #profilehandler {
+    margin: 10px 0px 10px 0px;
+}
+
+#cvwrapper .bottom #profilehandler .handlerTitle {
+    color: rgb(180, 3, 3);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 5px 0px 5px 0px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#cvwrapper .bottom #profilehandler .handlerAddress {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#cvwrapper .bottom #profilehandler .handlerAddress p {
+    padding: 2px;
+    margin: 20px 0px 10px 0px;
+    display: flex;
+}
+
+#cvwrapper .bottom #profilehandler .handlerAddress p a {
+    margin-top: -10px;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: black;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+}
+
+#cvwrapper .bottom #profilehandler .handlerAddress p img {
+    margin-bottom: -3px;
+}
+
+@media screen and (max-width: 600px) {
+    #print {
+        height: 30px;
+        width: 30px;
+    }
+
+    #print img {
+        height: 15px;
+        width: 15px;
+    }
+
+    #cvwrapper .top {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    #cvwrapper .top #leftBar {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0px 10px;
+    }
+
+    #cvwrapper .top #rightBar {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-left: 0px;
+        padding: 0px 20px;
+    }
+
+    #cvwrapper .bottom {
+        padding: 0px 20px;
+    }
+}
+

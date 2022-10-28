@@ -110,16 +110,6 @@ input[type=number]:focus,
   padding: 5px 10px;
 }
 
-.containers {
-  position: fixed;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  z-index: 3;
-  background-color: rgb(253, 253, 253);
-  height: 50px;
-}
-
 .topbar {
   width: 900px;
   top: 0;
@@ -178,7 +168,6 @@ input[type=number]:focus,
   padding: 5px;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
 }
 .wrapper .top {
   display: flex;

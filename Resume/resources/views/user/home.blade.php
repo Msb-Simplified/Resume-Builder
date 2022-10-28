@@ -28,6 +28,5 @@
     @push('scripts')
       <script src="{{ url('/Asset/js/user/app.js') }}"></script>
       <script src="{{ url('/Asset/js/user/logout.js') }}"></script>
-      
     @endpush
 @endonce

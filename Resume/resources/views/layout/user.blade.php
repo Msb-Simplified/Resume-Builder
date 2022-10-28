@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="{{ url('/Asset/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('/Asset/css/layout/default.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
 
 
     <script src="{{ url('/Asset/js/plugin/jquery-3.5.1.min.js') }}"></script>
@@ -39,6 +41,21 @@
     
     
     <script>
+    heightcheck();
+    function heightcheck() 
+    { 
+        var cvheight = $("#wrapper").height();
+        if(cvheight > 1100){
+          $("#wrapper").css({'border':'5px solid red','background-color':'red'});
+        
+        }else{
+          $("#wrapper").css({'border':'5px solid green','background-color':'white'});
+        }
+        return false;
+    }
+
+
+
       @if(Session::has('message'))
       toastr.options =
       {
