@@ -1,27 +1,44 @@
 <div class="wrapper" id="wrapper">
+
+    @isset($userdata)
+    <input id="cvid" type="hidden" value="{{ $userdata->userhasmanycvrelation[0]->id }}">
+    <input id="userid" type="hidden" value="{{ $userdata['id'] }}">
+    <input id="usernamestore" type="hidden" value="{{ $userdata['username'] }}">
+    @endisset
+
+
+
     <div class="top">
         <div id="leftBar">
             <div id="profile">
-                    <div class="profileImage" id="profileimagecheckboxcontroll">
+                    <div class="profileImage" id="profileimagecheckboxcontroll" style="cursor: pointer;">
                         @if (isset($settings[0]->image))
-                           <img src="{{ asset('Asset/user/'. $userdata->userhasmanycvrelation[0]->image) }}"id="profileimagebox">
+                           <img src="{{ asset('Asset/user/'. $userdata->userhasmanycvrelation[0]->image) }}"id="profileimage">
                         @else
-                          <img src="{{ asset('Asset/image/default.png') }}"id="profileimagebox">
+                          <img src="{{ asset('Asset/image/default.png') }}"id="profileimage">
                         @endif
                     </div>
+                    
+               {{-- <x-toggleModal class="btn btn-default float-right" id="userloginmodal">Login</x-toggleModal> --}}
 
                 <div class="profileTitle">
-                    <h3 class="titleName" id="displayname">
+                    <h3 class="titleName" id="displayname" style="margin-left: 20px;">
                         @if (isset($settings[0]->name))
                            {{ $userdata->userhasmanycvrelation[0]->name }}
+                           <span style="cursor: pointer;">
+                            <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                           </span>
                         @else
                             Profile Name
                         @endif
                     </h3>
             
-                    <h4 class="titleJob" id="displaytitle">
+                    <h4 class="titleJob" id="displaytitle"  style="margin-left: 20px;">
                         @if (isset($settings[0]->title))
-                        {{ $userdata->userhasmanycvrelation[0]->title }}
+                          {{ $userdata->userhasmanycvrelation[0]->title }}
+                          <span style="cursor: pointer;">
+                            <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                           </span>
                         @else
                             Profile Title
                         @endif
@@ -33,6 +50,9 @@
 
             <div id="about">
                 <div class="aboutTitle">About
+                    <span style="cursor: pointer;">
+                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                     </span>
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </div>
@@ -51,6 +71,9 @@
 
             <div id="contact">
                 <h3 class="contactTitle">Contact
+                    <span style="cursor: pointer;">
+                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                     </span>
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </h3>
@@ -64,6 +87,9 @@
             </div>
             <div id="profilehandler">
                 <h3 class="handlerTitle">Profile
+                    <span style="cursor: pointer;">
+                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                     </span>
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </h3>
@@ -100,6 +126,9 @@
         <div id="rightBar">
             <div id="education">
                 <div class="educationTitle">Education
+                    <span style="cursor: pointer;">
+                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                     </span>
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </div>
@@ -125,6 +154,9 @@
             </div>
             <div id="experence">
                 <div class="experenceTitle">Experence
+                    <span style="cursor: pointer;">
+                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                     </span>
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </div>
@@ -152,6 +184,9 @@
             </div>
             <div id="skill">
                 <h3 class="skillTitle">Skills
+                    <span style="cursor: pointer;">
+                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                     </span>
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </h3>
@@ -177,6 +212,9 @@
     <div class="bottom">
         <div id="language">
             <h3 class="languageTitle">Languages & Framework
+                <span style="cursor: pointer;">
+                  <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                 </span>
                 <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
             </h3>
@@ -193,6 +231,9 @@
         </div>
         <div id="tools">
             <h3 class="toolsTitle">Tools
+                <span style="cursor: pointer;">
+                  <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                 </span>
                 <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
             </h3>

@@ -1,22 +1,18 @@
 $(document).ready(function () {
-
-
-//    $("#progileimagechange").change(function(){
-//        $(this).attr('src','/Asset/image/logo.png');
-//    });
-
-
+    $(".update-cv-image-btn").click(function(e){
+        e.preventDefault();
+        uploadimage();
+     });
 })
 
 function loadFile(event) {
     var reader = new FileReader();
     reader.onload = function(){
-      var output = document.getElementById('profileimagebox');
+      var output = document.getElementById('profileimage');
       output.src = reader.result;
     };
     reader.readAsDataURL(event.target.files[0]);
 
-    uploadimage();
 };
 
 
@@ -35,7 +31,7 @@ function uploadimage(){
         form_data.append("userid",userid);
         form_data.append("cvid",cvid);
         $.ajax({
-            url: 'profilechange',
+            url: 'updateImage',
             type:'POST',
             enctype: 'multipart/form-data', // Use when send file or image
             data:form_data,
@@ -51,13 +47,12 @@ function uploadimage(){
             success:function(response) {
                 if (response["alert"] == "success") {
                     toastr.success(response["message"]);
-                    setTimeout(() => {
-                        $("#loader").css({ display: "none" });
-                    }, 1000);
+
     
                     setTimeout(() => {
+                        $("#loader").css({ display: "none" });
                         location.reload();
-                    }, 1500);
+                    }, 1800);
                 }
             },
         });

@@ -15,6 +15,12 @@
 <x-ui.modal.loginmodal  id="userloginmodal"/>
 <x-ui.modal.signupmodal  id="usersignupmodal"/>
 <x-ui.modal.sendcvmodalform  id="sendcvmodalform"/>
+
+
+
+<x-ui.modal.image  id="editimage"/>
+
+
 <div id="loader"></div>
 
 @endsection
@@ -28,5 +34,6 @@
     @push('scripts')
       <script src="{{ url('/Asset/js/user/app.js') }}"></script>
       <script src="{{ url('/Asset/js/user/logout.js') }}"></script>
+      <script src="{{ url('/Asset/js/user/edit.js') }}"></script>
     @endpush
 @endonce
