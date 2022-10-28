@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreateCvController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PrintController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UserSignupController;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,4 @@ Route::post('/logout', [UserLoginController::class,'userlogout'])->name('logout'
 
 
 Route::get('/makecv', [CreateCvController::class,'makecv'])->name('makecv');
+Route::get('/print/{username}/{id}', [PrintController::class,'print'])->name('print');

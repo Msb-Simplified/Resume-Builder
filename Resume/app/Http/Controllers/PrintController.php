@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Account;
 use App\Models\Education;
 use App\Models\Experence;
@@ -12,26 +11,31 @@ use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Support\Facades\Session as FacadesSession;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
 
-
-class HomeController extends Controller
-{
+class PrintController extends Controller
+{    
     
-    public function homeview(){
+    public function print(Request $request,$username,$id){
+        if(!FacadesSession::get('usersession')){
+            return view('404');
+            die();
+        }else{
+            
             $users = User::where('username', FacadesSession::get('userloginsessiondata'))->first();
 
             if($users){
                 $cvdata = Resume::where('user_id', $users->id)->first();
                 if ($cvdata){
-    
+
                     $skilldata = "";
-                   $userdata = User::where('username',FacadesSession::get('userloginsessiondata'))
-                   ->with('userhasmanycvrelation')
-                   ->first();
-    
+                $userdata = User::where('username',FacadesSession::get('userloginsessiondata'))
+                ->with('userhasmanycvrelation')
+                ->first();
+
                     if($userdata->userhasmanycvrelation[0]->skill != NULL){
                         $skilldata = Skill::where('resume_id',$userdata->userhasmanycvrelation[0]->id)
-                         ->get();
+                        ->get();
                     }
                     
                     // By default seeting data set when CVMAKE page is open first time
@@ -65,14 +69,15 @@ class HomeController extends Controller
                     $type = pathinfo($path,PATHINFO_EXTENSION);
                     $data = file_get_contents($path);
                     $lineimage = 'data:image/'.$type.';base64,'.base64_encode($data);
-    
-    
-                    return view('user.home',compact('userdata','skilldata','settings','accounts','educations','experence'));
+
+
+                    return view('user.print',compact('userdata','skilldata','settings','accounts','educations','experence'));
                 }else{
-                    return view('user.home',compact('userdata'));
+                    return view('user.print',compact('userdata'));
                 }
             }else{
                 return view('user.home');
             }
-    }
+        }
+    }   
 }

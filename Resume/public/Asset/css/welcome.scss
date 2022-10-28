@@ -7,6 +7,20 @@ body{
     margin: 40px 0px;
 }
 
+#print {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 textarea:focus, 
 textarea.form-control:focus, 
 input.form-control:focus, 
@@ -327,7 +341,7 @@ input[type=number]:focus,
                     a{
                         // margin-top: -10px;
                         text-decoration: none;
-                        background-color: #FFFFFF;
+                        background-color: rgb(247, 245, 245);
                         color: black;
                         padding: 5px;
                         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -510,7 +524,7 @@ input[type=number]:focus,
                    padding-bottom: 4px;
                    color: black;
                    margin-bottom: 10px;
-                   background-color: rgb(255, 255, 255);
+                   background-color: rgb(238, 236, 236);
                    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
                    position: relative;
                    span.first{
@@ -658,7 +672,7 @@ input[type=number]:focus,
                     a{
                         margin-top: -10px;
                         text-decoration: none;
-                        background-color: #FFFFFF;
+                        background-color: rgb(237, 237, 237);
                         color: black;
                         padding: 5px;
                         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

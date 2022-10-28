@@ -81,7 +81,6 @@
 
                                 <img src="{{ asset('Asset/socialmedia/' . $account->accountname.'.svg') }}"
                                     height="20px" width="20px">
-                                &nbsp;
                                 <span id="rendergithubhandler">{{ $account->accounthandler }}</span>
                             </a>
                         </p>
@@ -183,7 +182,8 @@
             </h3>
             <div class="languageImg">
                 @if (isset($settings[0]->language))
-                    @foreach(json_decode($userdata->userhasmanycvrelation[0]->language) as $lang)
+                    @foreach(json_decode($userdata->userhasmanycvrelation[0]->language) as $langs)
+                    <?php  $lang =  str_replace(' ', '', $langs); ?>
                     <img src="{{ asset('Asset/lang/' . $lang.'.svg') }}">&nbsp;
                     @endforeach
                 @else
@@ -198,9 +198,11 @@
             </h3>
             <div class="toolsIcon">
                 @if (isset($settings[0]->tools))
-                    @foreach(json_decode($userdata->userhasmanycvrelation[0]->tools) as $tool)
-                    <img src="{{ asset('Asset/tools/' .$tool.'.svg') }}">&nbsp;
+                    @foreach(json_decode($userdata->userhasmanycvrelation[0]->tools) as $tools)
+                    <?php  $tool =  str_replace(' ', '', $tools); ?>
+                    <img src="{{ asset('Asset/tools/'.$tool.'.svg') }}">&nbsp;
                     @endforeach
+                    
                 @else
                  Example :&nbsp; <img src="./Asset/tools/vscode.svg">&nbsp;
                 @endif

@@ -15,7 +15,7 @@
 
                 <ul class="dropdown-menu" style="">
                     <x-li href="/makecv">Create</x-li>
-                  <x-li href="/cv/{{ $userdata->id }}">Print</x-li>
+                  <x-li href="/print/{{ $userdata->username }}/{{ $userdata->userhasmanycvrelation[0]->id }}">Print</x-li>
                   <x-toggleModal id="sendcvmodalform">Send</x-toggleModal>
                   @if(basename(request()->path()) === 'makecv')
                       <x-toggleModal id="setingsmodal">Edit</x-toggleModal>

@@ -5,11 +5,11 @@ $(document).ready(function () {
         setTimeout(() => {
             $(this).show();
         }, 1000);
-        $("#cvwrapper").show();
+        $("#wrapper").show();
         $("body").css({"margin": "0px"});
         $("body").css({"margin-left": "50px"});
         $("body").css({"width": "650px"});
         window.print();
     });
 
-})
+});
