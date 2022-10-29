@@ -1,6 +1,6 @@
 $(document).ready(function () {
       $(".closemodalbtn").click(function(){
-         resetForm($('#updateaddressform'));
+         $('.summernote').summernote('code','');
       });
 
 
@@ -53,12 +53,11 @@ function editCv(base){
        success: function (response) {
          setTimeout(() => {
             $("#loader").css({ display: "none" });
-            // $('.summernote').summernote('pasteHTML',"");
             if(base=="getAbout"){
-               $('.aboutfield').summernote('pasteHTML',response.about);
+               $('.aboutfield').summernote('code',response.about);
                $('#editabout').modal('toggle');
             }else if(base=="getAddress"){
-               $('.addressfield').summernote('pasteHTML',response.address);
+               $('.addressfield').summernote('code',response.address);
                $('#editaddress').modal('toggle');
             }
             

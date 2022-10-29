@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/updateAbout" id="updateaboutform"  class="form">
+                <form method="POST" action="/updateAbout">
                     @csrf
                     <input type="hidden" name="cvid" value="{{ $cvid }}" />
                     <textarea name="aboutfield" class="aboutfield summernote"></textarea>
