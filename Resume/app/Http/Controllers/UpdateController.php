@@ -36,4 +36,19 @@ class UpdateController extends Controller
 
 
     }
+    public function updateName(Request $request){
+        // $products = json_decode($request, true);
+        
+        $resume = Resume::find($request->cvid);
+
+        if($request->name !="") $resume->name = $request->name;
+        if($request->title !="") $resume->title = $request->title;
+        $resume->save();
+
+        $notification = array(
+            'message' => 'Updated',
+            'alert' => 'success'
+        );
+        return $notification;
+    }
 }

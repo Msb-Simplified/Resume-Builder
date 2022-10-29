@@ -19,6 +19,8 @@
 
 
 <x-ui.modal.image  id="editimage"/>
+<x-ui.modal.profilename  id="editname"/>
+<x-ui.modal.profiletitle  id="edittitle"/>
 
 
 <div id="loader"></div>

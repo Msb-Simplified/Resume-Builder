@@ -25,8 +25,8 @@
                     <h3 class="titleName" id="displayname" style="margin-left: 20px;">
                         @if (isset($settings[0]->name))
                            {{ $userdata->userhasmanycvrelation[0]->name }}
-                           <span style="cursor: pointer;">
-                            <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
+                           <span style="cursor: pointer;" id="namechangemodalbtn">
+                            <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                            </span>
                         @else
                             Profile Name
@@ -36,9 +36,9 @@
                     <h4 class="titleJob" id="displaytitle"  style="margin-left: 20px;">
                         @if (isset($settings[0]->title))
                           {{ $userdata->userhasmanycvrelation[0]->title }}
-                          <span style="cursor: pointer;">
-                            <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                           </span>
+                          <span style="cursor: pointer;" id="titlechangemodalbtn">
+                           <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                          </span>
                         @else
                             Profile Title
                         @endif

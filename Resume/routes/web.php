@@ -33,3 +33,5 @@ Route::get('/print/{username}/{id}', [PrintController::class,'print'])->name('pr
 
 
 Route::post('/updateImage', [UpdateController::class,'updateImage'])->name('updateImage');
+Route::post('/updateName', [UpdateController::class,'updateName'])->name('updateName');
+Route::post('/updateTitle', [UpdateController::class,'updateName'])->name('updateTitle');
