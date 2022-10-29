@@ -35,3 +35,15 @@ Route::get('/print/{username}/{id}', [PrintController::class,'print'])->name('pr
 Route::post('/updateImage', [UpdateController::class,'updateImage'])->name('updateImage');
 Route::post('/updateName', [UpdateController::class,'updateName'])->name('updateName');
 Route::post('/updateTitle', [UpdateController::class,'updateName'])->name('updateTitle');
+Route::post('/updateAbout', [UpdateController::class,'updateAbout'])
+;
+Route::post('/updateAddress', [UpdateController::class,'updateAbout']);
+
+
+
+
+
+
+
+
+Route::get('/getAbout/{cvid}', [UpdateController::class,'get'])->name('get');

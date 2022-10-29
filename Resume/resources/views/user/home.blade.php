@@ -14,13 +14,18 @@
 
 <x-ui.modal.loginmodal  id="userloginmodal"/>
 <x-ui.modal.signupmodal  id="usersignupmodal"/>
-<x-ui.modal.sendcvmodalform  id="sendcvmodalform"/>
 
 
 
-<x-ui.modal.image  id="editimage"/>
-<x-ui.modal.profilename  id="editname"/>
-<x-ui.modal.profiletitle  id="edittitle"/>
+
+@if(Session::has('usersession'))
+  <x-ui.modal.sendcvmodalform  id="sendcvmodalform"/>
+  <x-ui.modal.image  id="editimage"/>
+  <x-ui.modal.profilename  id="editname"/>
+  <x-ui.modal.profiletitle  id="edittitle"/>
+  <x-ui.modal.about  id="editabout" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
+  <x-ui.modal.address  id="editaddress" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
+@endif
 
 
 <div id="loader"></div>

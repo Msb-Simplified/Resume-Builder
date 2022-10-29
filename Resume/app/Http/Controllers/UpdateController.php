@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class UpdateController extends Controller
 {
@@ -43,12 +44,64 @@ class UpdateController extends Controller
 
         if($request->name !="") $resume->name = $request->name;
         if($request->title !="") $resume->title = $request->title;
-        $resume->save();
 
-        $notification = array(
-            'message' => 'Updated',
-            'alert' => 'success'
-        );
-        return $notification;
+
+        if($request->aboutfield !=""){
+            sleep(1);
+            $resume->about = $request->aboutfield;
+        }
+
+        $saved =  $resume->save();
+        if($saved){
+            $notification = array(
+                'message' => 'Updated',
+                'alert' => 'success'
+            );
+            return $notification;
+        }else{
+            
+            $notification = array(
+                'message' => 'Check yoyr network connection',
+                'alert-type' => 'error'
+            );
+            return Redirect::to('/')->with($notification);
+        }
+
+    }
+    public function updateAbout(Request $request){
+        // $products = json_decode($request, true);
+        
+        $resume = Resume::find($request->cvid);
+        if($request->aboutfield !=""){
+            sleep(1);
+            $resume->about = $request->aboutfield;
+
+        }else if($request->addressfield !=""){
+            sleep(1);
+            $resume->address = $request->addressfield;
+        }
+        else{
+            $notification = array(
+                'message' => 'Please insert carefully !',
+                'type' => 'error'
+            );
+            return Redirect::to('/')->with($notification);
+        }
+
+
+        $saved =  $resume->save();
+        if($saved){
+            $notification = array(
+                'message' => 'Field Updated',
+                'type' => 'success'
+            );
+            return Redirect::to('/')->with($notification);
+        }
+
+
+    }
+    public function get($cvid){
+        $resume = Resume::find($cvid);
+        return response()->json($resume);
     }
 }

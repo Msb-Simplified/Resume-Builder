@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class modal extends Component
 {
+    // public $cvid;
     /**
      * Create a new component instance.
      *
@@ -13,7 +14,7 @@ class modal extends Component
      */
     public function __construct()
     {
-        //
+        // $this->cvid = $cvid;
     }
 
     /**

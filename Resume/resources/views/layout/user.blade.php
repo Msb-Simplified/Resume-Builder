@@ -29,7 +29,9 @@
   <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
   <script src="{{ url('/Asset/js/plugin/bootstrap.bundle.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
   <script src="{{ url('/Asset/js/plugin/printThis.js') }}"></script>
+  <script src="{{ url('/Asset/js/cv/settings.js') }}"></script>
 
   @stack('styles')
   @stack('scripts')
@@ -54,9 +56,8 @@
             }
             return false;
         }
-    });
 
-    $(document).ready(function () {
+        
         $("#print").click(function () {
             $('#wrapper').printThis({
                 importCSS: true,
@@ -65,36 +66,35 @@
             });
         });
     });
-
-
-      @if(Session::has('message'))
-      toastr.options =
-      {
-          "closeButton" : true,
-          "progressBar" : true
-      }
-      var type = "{{ Session::get('alert-type') }}";
-      switch(type){
-          case 'info':
-              toastr.info("{{ Session::get('message') }}");
-              break;
-
-          case 'warning':
-              toastr.warning("{{ Session::get('message') }}");
-              break;
-
-          case 'success':
-              toastr.success("{{ Session::get('message') }}");
-              break;
-
-          case 'error':
-              toastr.error("{{ Session::get('message') }}");
-              break;
-      }
-      @endif
-
-
   </script>
+
+<script>
+    @if(Session::has('message'))
+        toastr.options =
+        {
+            "closeButton" : true,
+            "progressBar" : true
+        }
+        var type = "{{ Session::get('type') }}";
+        switch(type){
+            case 'info':
+                toastr.info("{{ Session::get('message') }}");
+                break;
+
+            case 'warning':
+                toastr.warning("{{ Session::get('message') }}");
+                break;
+
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
+
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
+    @endif
+</script>
 
 </body>
 

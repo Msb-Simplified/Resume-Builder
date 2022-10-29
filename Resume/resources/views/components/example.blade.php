@@ -50,9 +50,9 @@
 
             <div id="about">
                 <div class="aboutTitle">About
-                    <span style="cursor: pointer;">
-                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                     </span>
+                    <span style="cursor: pointer;" id="aboutchangemodalbtn">
+                     <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                    </span>
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </div>
@@ -71,9 +71,9 @@
 
             <div id="contact">
                 <h3 class="contactTitle">Contact
-                    <span style="cursor: pointer;">
-                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                     </span>
+                    <span style="cursor: pointer;" id="addresschangemodalbtn">
+                     <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                    </span>
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </h3>
