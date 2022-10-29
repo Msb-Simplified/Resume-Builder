@@ -42,8 +42,5 @@ Route::post('/updateAddress', [UpdateController::class,'updateAbout']);
 
 
 
-
-
-
-
-Route::get('/getAbout/{cvid}', [UpdateController::class,'get'])->name('get');
+Route::get('/getAbout/{cvid}', [UpdateController::class,'get']);
+Route::get('/getAddress/{cvid}', [UpdateController::class,'get']);

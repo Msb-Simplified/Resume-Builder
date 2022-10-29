@@ -11,7 +11,7 @@
                 <form method="POST" action="/updateAddress">
                     @csrf
                     <input type="hidden" name="cvid" value="{{ $cvid }}" />
-                    <textarea name="addressfield" class="aboutfield summernote"></textarea>
+                    <textarea name="addressfield" class="addressfield summernote"></textarea>
                     <x-btn class="float-right submit-Form-With-Js mt-2" type="button">Update</x-btn>
                 </form>
             </div>

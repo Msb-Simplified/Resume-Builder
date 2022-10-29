@@ -11,7 +11,7 @@
                 <form method="POST" action="/updateAbout" id="updateaboutform">
                     @csrf
                     <input type="hidden" name="cvid" value="{{ $cvid }}" />
-                    <textarea name="aboutfield" class="aboutfield summernote" id="aboutsummernote"></textarea>
+                    <textarea name="aboutfield" class="aboutfield summernote"></textarea>
                     <x-btn class="float-right submit-Form-With-Js mt-2" type="button">Update</x-btn>
                 </form>
             </div>

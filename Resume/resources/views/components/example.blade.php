@@ -25,9 +25,11 @@
                     <h3 class="titleName" id="displayname" style="margin-left: 20px;">
                         @if (isset($settings[0]->name))
                            {{ $userdata->userhasmanycvrelation[0]->name }}
-                           <span style="cursor: pointer;" id="namechangemodalbtn">
-                            <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
-                           </span>
+                           @if(Session::has('usersession'))
+                               <span style="cursor: pointer;" id="namechangemodalbtn">
+                               <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                               </span>
+                           @endif
                         @else
                             Profile Name
                         @endif
@@ -36,9 +38,11 @@
                     <h4 class="titleJob" id="displaytitle"  style="margin-left: 20px;">
                         @if (isset($settings[0]->title))
                           {{ $userdata->userhasmanycvrelation[0]->title }}
-                          <span style="cursor: pointer;" id="titlechangemodalbtn">
-                           <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
-                          </span>
+                          @if(Session::has('usersession'))
+                              <span style="cursor: pointer;" id="titlechangemodalbtn">
+                              <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                              </span>
+                          @endif
                         @else
                             Profile Title
                         @endif
@@ -50,9 +54,11 @@
 
             <div id="about">
                 <div class="aboutTitle">About
-                    <span style="cursor: pointer;" id="aboutchangemodalbtn">
-                     <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
-                    </span>
+                    @if(Session::has('usersession'))
+                        <span style="cursor: pointer;" id="aboutchangemodalbtn">
+                        <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                        </span>
+                    @endif
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </div>
@@ -71,9 +77,11 @@
 
             <div id="contact">
                 <h3 class="contactTitle">Contact
-                    <span style="cursor: pointer;" id="addresschangemodalbtn">
-                     <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
-                    </span>
+                    @if(Session::has('usersession'))
+                        <span style="cursor: pointer;" id="addresschangemodalbtn">
+                        <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                        </span>
+                    @endif
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </h3>
@@ -87,9 +95,11 @@
             </div>
             <div id="profilehandler">
                 <h3 class="handlerTitle">Profile
-                    <span style="cursor: pointer;">
-                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                     </span>
+                     @if(Session::has('usersession'))
+                         <span style="cursor: pointer;" id="profilechangemodalbtn">
+                         <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                         </span>
+                     @endif
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </h3>
@@ -126,9 +136,11 @@
         <div id="rightBar">
             <div id="education">
                 <div class="educationTitle">Education
-                    <span style="cursor: pointer;">
-                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                     </span>
+                    @if(Session::has('usersession'))
+                        <span style="cursor: pointer;" id="educhangemodalbtn">
+                        <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                        </span>
+                    @endif
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </div>
@@ -154,9 +166,11 @@
             </div>
             <div id="experence">
                 <div class="experenceTitle">Experence
-                    <span style="cursor: pointer;">
-                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                     </span>
+                    @if(Session::has('usersession'))
+                        <span style="cursor: pointer;" id="expchangemodalbtn">
+                        <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                        </span>
+                    @endif
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </div>
@@ -184,14 +198,16 @@
             </div>
             <div id="skill">
                 <h3 class="skillTitle">Skills
-                    <span style="cursor: pointer;">
-                      <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                     </span>
+                    @if(Session::has('usersession'))
+                        <span style="cursor: pointer;" id="skillchangemodalbtn">
+                        <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                        </span>
+                    @endif
                     <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                     <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 </h3>
                  
-                @if (isset($settings[0]->education))
+                @if (isset($settings[0]->skill))
                     @foreach ($skilldata as $skill)
                     <div class="skill-container">
                         <div class="skill skillone" style="width:{{ $skill->percent }}%">
@@ -212,9 +228,11 @@
     <div class="bottom">
         <div id="language">
             <h3 class="languageTitle">Languages & Framework
-                <span style="cursor: pointer;">
-                  <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                 </span>
+                @if(Session::has('usersession'))
+                    <span style="cursor: pointer;" id="langchangemodalbtn">
+                    <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                    </span>
+                @endif
                 <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
             </h3>
@@ -231,9 +249,11 @@
         </div>
         <div id="tools">
             <h3 class="toolsTitle">Tools
-                <span style="cursor: pointer;">
-                  <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;color:yellowgreen;">
-                 </span>
+                @if(Session::has('usersession'))
+                    <span style="cursor: pointer;" id="toolschangemodalbtn">
+                    <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
+                    </span>
+                @endif
                 <img class="lineone" src="{{ asset('/public/Asset/icon/remove.png') }}">
                 <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
             </h3>

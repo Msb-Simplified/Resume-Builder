@@ -9,17 +9,16 @@ $(document).ready(function () {
         $('#edittitle').modal('toggle');
      });
      $("#aboutchangemodalbtn").click(function(){
-         var url = "getAbout/"+$("#cvid").val();
-         editCv(url);
-     });
-
-     $("#aboutchangemodalbtn").click(function(){
-        $('#editabout').modal('toggle');
+         var base = "getAbout";
+         editCv(base);
      });
 
      $("#addresschangemodalbtn").click(function(){
-      $('#editaddress').modal('toggle');
+      //   $('#editaddress').modal('toggle');
+        var base = "getAddress";
+        editCv(base);
      });
+     
      $(".submit-Form-With-Js").click(function(e){
         e.preventDefault();
         $("#loader").css({ display: "block" });
@@ -31,17 +30,28 @@ $(document).ready(function () {
 });
 
 
-function editCv(url){
+function editCv(base){
+   var url = base+"/"+$("#cvid").val();
    $.ajax({
        type: 'GET',
        url: url,
        dataType: "json",
        beforeSend: function () {
-         //   $("#loader").css({ display: "block" });
+           $("#loader").css({ display: "block" });
        },
        success: function (response) {
-         $('#aboutsummernote').summernote('pasteHTML',response.about)
-         $('#editabout').modal('toggle');
+         setTimeout(() => {
+            $("#loader").css({ display: "none" });
+
+            if(base=="getAbout"){
+               $('.aboutfield').summernote('pasteHTML',response.about);
+               $('#editabout').modal('toggle');
+            }else if(base=="getAddress"){
+               $('.addressfield').summernote('pasteHTML',response.address);
+               $('#editaddress').modal('toggle');
+            }
+            
+         }, 500);
        }
    });
 }

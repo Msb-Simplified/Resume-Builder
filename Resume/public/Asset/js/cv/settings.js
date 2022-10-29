@@ -2,7 +2,7 @@ $(document).ready(function () {
     // $('#setingsmodal').modal('toggle');
     //########################  Pluggin Settings #####################
     $(".summernote").summernote({
-        height: 150,
+        height: 250,
         codemirror: {
             theme: 'monokai'
         },

@@ -16,8 +16,6 @@
 <x-ui.modal.signupmodal  id="usersignupmodal"/>
 
 
-
-
 @if(Session::has('usersession'))
   <x-ui.modal.sendcvmodalform  id="sendcvmodalform"/>
   <x-ui.modal.image  id="editimage"/>
@@ -26,9 +24,8 @@
   <x-ui.modal.about  id="editabout" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.address  id="editaddress" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
 @endif
-
-
 <div id="loader"></div>
+
 
 @endsection
 
