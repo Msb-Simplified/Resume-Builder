@@ -4,11 +4,11 @@
             <div class="modal-header text-center">
                 <div class="userloginheader">
                     <p>User Address</p>
-                    <img src="{{ asset('Asset/icon/close1.svg')}}" style="height:30px; width:30px;cursor:pointer;" data-dismiss="modal">
+                    <img src="{{ asset('Asset/icon/close1.svg')}}" style="height:30px; width:30px;cursor:pointer;" data-dismiss="modal" class="closemodalbtn">
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/updateAddress">
+                <form method="POST" action="/updateAddress" class="form" id="updateaddressform">
                     @csrf
                     <input type="hidden" name="cvid" value="{{ $cvid }}" />
                     <textarea name="addressfield" class="addressfield summernote"></textarea>

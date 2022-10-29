@@ -1,4 +1,9 @@
 $(document).ready(function () {
+      $(".closemodalbtn").click(function(){
+         resetForm($('#updateaddressform'));
+      });
+
+
      $("#profileimage").click(function(){
         $('#editimage').modal('toggle');
      });
@@ -29,6 +34,12 @@ $(document).ready(function () {
      
 });
 
+function resetForm($form) {
+   $form.find('input:text, input:password, input:file, select, textarea').val('');
+   $form.find('input:radio, input:checkbox')
+        .removeAttr('checked').removeAttr('selected');
+}
+
 
 function editCv(base){
    var url = base+"/"+$("#cvid").val();
@@ -42,7 +53,7 @@ function editCv(base){
        success: function (response) {
          setTimeout(() => {
             $("#loader").css({ display: "none" });
-
+            // $('.summernote').summernote('pasteHTML',"");
             if(base=="getAbout"){
                $('.aboutfield').summernote('pasteHTML',response.about);
                $('#editabout').modal('toggle');

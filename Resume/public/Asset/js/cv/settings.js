@@ -3,6 +3,7 @@ $(document).ready(function () {
     //########################  Pluggin Settings #####################
     $(".summernote").summernote({
         height: 250,
+        // airMode: true,
         codemirror: {
             theme: 'monokai'
         },
