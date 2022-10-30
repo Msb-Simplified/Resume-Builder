@@ -7,6 +7,7 @@ namespace App\Providers;
 use App\View\Components\ui\a;
 use App\View\Components\ui\btn;
 use App\View\Components\ui\form\formGroup;
+use App\View\Components\ui\form\groupAppend;
 use App\View\Components\ui\form\groupPrepend;
 use App\View\Components\ui\form\inputField;
 use App\View\Components\ui\li;
@@ -43,6 +44,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('toggleModal', modaltoggle::class);
         Blade::component('formgroup', formGroup::class);
         Blade::component('groupprepend', groupPrepend::class);
+        Blade::component('groupappend', groupAppend::class);
         Blade::component('inputField', inputField::class);
     }
 }

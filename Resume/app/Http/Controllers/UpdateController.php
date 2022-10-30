@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -103,5 +104,18 @@ class UpdateController extends Controller
     public function get($cvid){
         $resume = Resume::find($cvid);
         return response()->json($resume);
+    }
+
+    public function loadAccountsData($cvid){
+        $accounts = Account::where('resume_id',$cvid)->get();
+        return response()->json($accounts);
+    }
+
+    public function accountDelete(Request $request){
+        $res = Account::where('id',$request->id)->delete();
+        if($res){
+            $response = $this->loadAccountsData($request->cvid);
+            return $response;
+        }
     }
 }

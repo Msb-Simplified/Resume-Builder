@@ -96,7 +96,7 @@
             <div id="profilehandler">
                 <h3 class="handlerTitle">Profile
                      @if(Session::has('usersession'))
-                         <span style="cursor: pointer;" id="profilechangemodalbtn">
+                         <span style="cursor: pointer;" id="accountschangemodalbtn">
                          <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                          </span>
                      @endif

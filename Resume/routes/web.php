@@ -18,7 +18,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+    
+    // php artisan config:cache
+    // php artisan cache:clear
+    // php artisan route:cache
+    // php artisan route:clear
+    // php artisan view:clear
 
 Route::get('/', [HomeController::class,'homeview'])->name('homeview');
 // Route::get('/', function () { return view('user.home');  });
@@ -44,3 +49,9 @@ Route::post('/updateAddress', [UpdateController::class,'updateAbout']);
 
 Route::get('/getAbout/{cvid}', [UpdateController::class,'get']);
 Route::get('/getAddress/{cvid}', [UpdateController::class,'get']);
+Route::get('/loadResumeData/{cvid}', [UpdateController::class,'loadAccountsData']);
+
+
+
+
+Route::post('/accountDelete', [UpdateController::class,'accountDelete']);
