@@ -1,19 +1,31 @@
 $(document).ready(function () {
-      $(".closemodalbtn").click(function(){
-         $('.summernote').summernote('code','');
-      });
+
+
+
+   $(".closemodalbtn").click(function(){
+      $('.summernote').summernote('code','');
+   });
 
      $("#profileimage").click(function(){
         $('#editimage').modal('toggle');
      });
+
      $("#namechangemodalbtn").click(function(){
         $('#editname').modal('toggle');
      });
+
      $("#titlechangemodalbtn").click(function(){
         $('#edittitle').modal('toggle');
      });
+
      $("#aboutchangemodalbtn").click(function(){
          var base = "getAbout";
+         editCv(base);
+     });
+     
+
+     $("#langchangemodalbtn").click(function(){
+         var base = "loadLanguage";
          editCv(base);
      });
 
@@ -66,6 +78,8 @@ $(document).ready(function () {
          });
      });
 
+     
+
      $("#accountschangemodalbtn").click(function(){
          var base = "loadResumeData";
          editCv(base);
@@ -78,6 +92,24 @@ $(document).ready(function () {
         setTimeout(() => {
           $(this).closest("form").submit();
         }, 1100);
+      });
+
+      $(".updateLanguageBtn").click(function(){
+         var languageArray = $('.lang-select option:selected')
+         .toArray().map(item => item.text);
+
+         if((languageArray.length) < 1){
+            toastr.error("Select language first");
+         }else{
+            JsonObject = JSON.stringify(languageArray);
+            
+            var data = {
+              'language':JsonObject,
+              'cvid':   $("#cvid").val(),
+              'user_id':   $("#userid").val(),
+            }
+             updateLanguage(data);
+         }
       });
      
 });
@@ -114,11 +146,27 @@ function editCv(base){
                   accountsPrintInModal(element);
                });
                $('#editaccounts').modal('toggle');
-            } 
+            }else if(base=="loadLanguage"){
+              var language = JSON.parse(response.language);
+
+               // $('.languagediv').html("");
+               language.forEach(element => {
+                  languagePrintInModal(element);
+               });
+               $('#editlanguage').modal('toggle');
+            }
          }, 500);
        }
    });
 }
+
+
+var data =[];
+function languagePrintInModal(element){
+    data.push(element);
+   $('.lang-select').val(data);
+}
+
 
 function accountsPrintInModal(element){
    var data = "";
@@ -244,6 +292,30 @@ function editAccount(account){
        }
    });
 
+}
+
+
+function updateLanguage(data){
+   $.ajax({
+      type: "POST",
+      url: "upadateLanguage",
+      data: data,
+      headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      beforeSend: function () {
+          $("#loader").css({ display: "block" });
+      },
+      success: function (response) {
+        console.log(response["message"]);
+        if(response["alert"].includes("success")){
+           toastr.success(response["message"]);
+           setTimeout(() => {
+              window.location.href = "/";
+           }, 1500);
+        }
+      }
+  });
 }
 
 

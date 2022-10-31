@@ -263,7 +263,6 @@
                     <?php  $tool =  str_replace(' ', '', $tools); ?>
                     <img src="{{ asset('Asset/tools/'.$tool.'.svg') }}">&nbsp;
                     @endforeach
-                    
                 @else
                  Example :&nbsp; <img src="./Asset/tools/vscode.svg">&nbsp;
                 @endif

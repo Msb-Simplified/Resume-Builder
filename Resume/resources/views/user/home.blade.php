@@ -24,6 +24,8 @@
   <x-ui.modal.about  id="editabout" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.address  id="editaddress" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.accounts  id="editaccounts" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
+  <x-ui.modal.language  id="editlanguage" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
+
 @endif
 <div id="loader"></div>
 <div id="loader-black"></div>

@@ -150,4 +150,18 @@ class UpdateController extends Controller
             return $response;
         }
     }
+
+    public function upadateLanguage(Request $request)
+    {
+        $resume = Resume::find($request->cvid);
+        $resume->language = $request->language;
+        $resume->save();
+
+        $notification = array(
+            'message' => 'Language added',
+            'alert' => 'success'
+        );
+
+        return $notification;
+    }
 }

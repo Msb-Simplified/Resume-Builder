@@ -57,3 +57,8 @@ Route::get('/loadResumeData/{cvid}', [UpdateController::class,'loadAccountsData'
 Route::post('/accountDelete', [UpdateController::class,'accountDelete']);
 Route::post('/updateAccount', [UpdateController::class,'updateAccount']);
 Route::post('/addAccount', [UpdateController::class,'addAccount']);
+
+
+
+Route::get('/loadLanguage/{cvid}', [UpdateController::class,'get']);
+Route::post('/upadateLanguage', [UpdateController::class,'upadateLanguage']);

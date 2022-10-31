@@ -31,9 +31,10 @@ $(document).ready(function () {
             
         ],
     });
-    $(".select2").select2({
-        placeholder: "Chose",
-        closeOnSelect: true,
+
+    $(".lang-select").select2({
+        placeholder: "Chose Language",
+        closeOnSelect: false,
     });
     //########################  Pluggin Settings #####################
 });

@@ -30,6 +30,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
   <script src="{{ url('/Asset/js/plugin/bootstrap.bundle.min.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js
+"></script>
   <script src="{{ url('/Asset/js/plugin/printThis.js') }}"></script>
   <script src="{{ url('/Asset/js/cv/settings.js') }}"></script>
 
