@@ -118,4 +118,36 @@ class UpdateController extends Controller
             return $response;
         }
     }
+
+    public function updateAccount(Request $request){
+
+        $accounts = Account::find($request->id);
+        $accounts->accountname = $request->accountname;
+        $accounts->accounthandler = $request->accounthandler;
+        $saved =  $accounts->save();
+        if($saved){
+            $response = $this->loadAccountsData($request->cvid);
+            return $response;
+        }else{
+            
+            $notification = array(
+                'message' => 'Check yoyr network connection',
+                'alert-type' => 'error'
+            );
+            return Redirect::to('/')->with($notification);
+        }
+
+    }
+
+    public function addAccount(Request $request){
+        $Account = new Account();
+        $Account->resume_id = $request->cvid;
+        $Account->accountname = $request->accountname;
+        $Account->accounthandler = $request->accounthandler;
+        $Account->save();
+        if($Account){
+            $response = $this->loadAccountsData($request->cvid);
+            return $response;
+        }
+    }
 }

@@ -26,6 +26,7 @@
   <x-ui.modal.accounts  id="editaccounts" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
 @endif
 <div id="loader"></div>
+<div id="loader-black"></div>
 
 
 @endsection

@@ -3,7 +3,6 @@ $(document).ready(function () {
          $('.summernote').summernote('code','');
       });
 
-
      $("#profileimage").click(function(){
         $('#editimage').modal('toggle');
      });
@@ -24,22 +23,62 @@ $(document).ready(function () {
         editCv(base);
      });
 
+     $(".AddAccountsbtn").click(function(){
+         var jsonTest = {
+            accountname:$("#accounts-name-field").val(),
+            accounthandler:$("#accounts-handler-field").val(),
+            cvid:$("#cvid").val()
+         };
+         var datas = JSON.stringify(jsonTest);
+      
+         $.ajax({
+            type: "POST",
+            url:"addAccount",
+            data: datas,
+            cache: false,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            headers: {
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            beforeSend: function () {
+               $("#loader").css({ display: "block" });
+            },
+            success: function (response) {
+               $("#accounts-name-field").val("");
+               $("#accounts-handler-field").val("")
+
+               $('.accountsdiv').html("");
+               $('.handlerAddress').html("");
+      
+               response.forEach(element => {
+                  accountsPrintInModal(element);
+                  accountsPrintInPage(element);
+               });
+      
+               toastr.success("Accounts Added");
+
+               setTimeout(() => {
+                  $("#loader").css({ display: "none" })
+               }, 1000);
+      
+            }
+         });
+     });
+
      $("#accountschangemodalbtn").click(function(){
          var base = "loadResumeData";
          editCv(base);
      });
      
 
-
-
-
-     $(".submit-Form-With-Js").click(function(e){
+      $(".submit-Form-With-Js").click(function(e){
         e.preventDefault();
         $("#loader").css({ display: "block" });
         setTimeout(() => {
           $(this).closest("form").submit();
         }, 1100);
-     });
+      });
      
 });
 
@@ -57,11 +96,11 @@ function editCv(base){
        url: url,
        dataType: "json",
        beforeSend: function () {
-           $("#loader").css({ display: "block" });
+           $("#loader-black").css({ display: "block" });
        },
        success: function (response) {
          setTimeout(() => {
-            $("#loader").css({ display: "none" });
+            $("#loader-black").css({ display: "none" });
             if(base=="getAbout"){
                $('.aboutfield').summernote('code',response.about);
                $('#editabout').modal('toggle');
@@ -71,9 +110,8 @@ function editCv(base){
             }else if(base=="loadResumeData"){
                // console.log(response);
                $('.accountsdiv').html("");
-
                response.forEach(element => {
-                  accountsPrint(element);
+                  accountsPrintInModal(element);
                });
                $('#editaccounts').modal('toggle');
             } 
@@ -82,7 +120,7 @@ function editCv(base){
    });
 }
 
-function accountsPrint(element){
+function accountsPrintInModal(element){
    var data = "";
    data += '<div class="form-group">'+
      '<div class="input-group">'+
@@ -91,22 +129,31 @@ function accountsPrint(element){
               '<span class="fas fa-solid fa-user-graduate"></span>'+
            '</div>'+
         '</div>'+
-        '<input value="'+ element.accountname+'"class="form-control" id="profile-accounts-input" type="text" placeholder="github">'+
-        '<input value='+ element.accounthandler +' class="form-control" id="profile-accounts-input" type="text" placeholder="ShishirBhuiyan">'+
+        '<input value="'+ element.accountname+'" class="form-control"   id="profile-accounts-name-input" type="text" placeholder="github">'+
+        '<input value='+ element.accounthandler +' class="form-control" id="profile-accounts-handler-input" type="text" placeholder="ShishirBhuiyan">'+
         '<div class="input-group-append">'+
-           '<div class="input-group-text bg-success" style="cursor:pointer;">'+
-              '<span class="fas fa-check"></span>&nbsp;'+
-           '</div>'+
-           '<div class="input-group-text bg-warning" style="cursor:pointer;">'+
+           '<div class="input-group-text bg-warning " style="cursor:pointer;" data-id="'+element.id+'"  onclick="editAccount(this)">'+
               '<span class="fas fa-edit ml-1 "></span>'+
            '</div>'+
-           '<div class="input-group-text bg-danger" style="cursor:pointer;"onclick="deleteAccount('+element.id+')">'+
+           '<div class="input-group-text bg-danger" style="cursor:pointer;" onclick="deleteAccount('+element.id+')">'+
               '<span class="fas fa-trash ml-1 "></span>'+
            '</div>'+
         '</div>'+
      '</div>'+
   '</div>';
   $('.accountsdiv').append(data);
+}
+
+function accountsPrintInPage(element){
+   var data = "";
+   data += '<p><a href="https://'+element.accountname+'.com/'+element.accounthandler+'" target="_blank">';
+   data += '<img src="/Asset/socialmedia/'+element.accountname+'.svg" height="20px" width="20px"/>';
+   data += '&nbsp;<span id="rendergithubhandler">'+element.accounthandler+'</span></a></p>';
+   
+   // {{ asset('Asset/socialmedia/' . $account->accountname.'.svg') }}
+
+  $('.handlerAddress').append(data);
+  
 }
 
 
@@ -133,8 +180,11 @@ function deleteAccount(accountId){
        },
        success: function (response) {
          $('.accountsdiv').html("");
+         $('.handlerAddress').html("");
+
          response.forEach(element => {
-            accountsPrint(element);
+            accountsPrintInModal(element);
+            accountsPrintInPage(element);
          });
          toastr.success("Deleted");
          setTimeout(() => {
@@ -146,5 +196,55 @@ function deleteAccount(accountId){
 
 }
 
- 
+function editAccount(account){
+   // console.log($("#profile-accounts-name-input-".accountId));
+
+   const accountId = $(account).data("id");
+   let AccountNameFild = $(account).parent().siblings()[1];
+   let AccountHandlerFild = $(account).parent().siblings()[2];
+
+   var jsonTest = {
+      id: accountId,
+      accountname:$(AccountNameFild).val(),
+      accounthandler:$(AccountHandlerFild).val(),
+      cvid:$("#cvid").val()
+   };
+
+   var datas = JSON.stringify(jsonTest);
+
+   $.ajax({
+       type: "POST",
+       url:"updateAccount",
+       data: datas,
+       cache: false,
+       dataType: "json",
+       contentType: "application/json; charset=utf-8",
+       headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+       },
+       beforeSend: function () {
+           $("#loader").css({ display: "block" });
+       },
+       success: function (response) {
+         console.log(response);
+         $('.accountsdiv').html("");
+         $('.handlerAddress').html("");
+
+         response.forEach(element => {
+            accountsPrintInModal(element);
+            accountsPrintInPage(element);
+         });
+
+         toastr.success("Accounts updated");
+
+         setTimeout(() => {
+            $("#loader").css({ display: "none" })
+         }, 1000);
+
+       }
+   });
+
+}
+
+
 

@@ -8,16 +8,15 @@
                 </div>
             </div>
             <div class="modal-body">
-                <form method="POST" action="/addAccount" id="accountsform">
-                    @csrf
+                <form id="accountsform">
                     <div class="accountsdiv">
                     </div>
                     <x-formgroup>
                         <x-groupprepend><span class="fas fa-solid fa-user-graduate"></span>
                         </x-groupprepend>
-                        <x-inputField id="profile-accounts-input" type="text" placeholder="Site name" />
-                        <x-inputField id="profile-accounts-input" type="text" placeholder="Account handler" />
-                        <x-groupappend style="cursor: pointer;" class="submit-Form-With-Js" type="button"> Save</x-groupappend>
+                        <x-inputField id="accounts-name-field" type="text" placeholder="Site name" />
+                        <x-inputField id="accounts-handler-field" type="text" placeholder="Account handler" />
+                        <x-groupappend style="cursor: pointer;" class="AddAccountsbtn" type="button"> Save</x-groupappend>
                     </x-formgroup>
                 </form>
             </div>
