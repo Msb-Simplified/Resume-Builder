@@ -24,10 +24,6 @@ $(document).ready(function () {
      });
      
 
-     $("#langchangemodalbtn").click(function(){
-         var base = "loadLanguage";
-         editCv(base);
-     });
 
      $("#addresschangemodalbtn").click(function(){
       //   $('#editaddress').modal('toggle');
@@ -85,7 +81,6 @@ $(document).ready(function () {
          editCv(base);
      });
      
-
       $(".submit-Form-With-Js").click(function(e){
         e.preventDefault();
         $("#loader").css({ display: "block" });
@@ -94,6 +89,10 @@ $(document).ready(function () {
         }, 1100);
       });
 
+      $("#langchangemodalbtn").click(function(){
+         var base = "loadLanguage";
+         editCv(base);
+      });
       $(".updateLanguageBtn").click(function(){
          var languageArray = $('.lang-select option:selected')
          .toArray().map(item => item.text);
@@ -108,7 +107,31 @@ $(document).ready(function () {
               'cvid':   $("#cvid").val(),
               'user_id':   $("#userid").val(),
             }
-             updateLanguage(data);
+            updateLanguage_or_Tools(data);
+         }
+      });
+
+
+      $("#toolschangemodalbtn").click(function(){
+         var base = "loadTools";
+         editCv(base);
+      });
+      $(".updateToolsBtn").click(function(){
+         var toolsArray = $('.tools-select option:selected')
+         .toArray().map(item => item.text);
+
+         if((toolsArray.length) < 1){
+            toastr.error("Select tools first");
+         }else{
+            JsonObject = JSON.stringify(toolsArray);
+            
+            var data = {
+               'type':"tools",
+              'tools':JsonObject,
+              'cvid':   $("#cvid").val(),
+              'user_id':   $("#userid").val(),
+            }
+            updateLanguage_or_Tools(data);
          }
       });
      
@@ -154,17 +177,31 @@ function editCv(base){
                   languagePrintInModal(element);
                });
                $('#editlanguage').modal('toggle');
-            }
+            }else if(base=="loadTools"){
+               var tools = JSON.parse(response.tools);
+ 
+                // $('.languagediv').html("");
+                tools.forEach(element => {
+                   toolsPrintInModal(element);
+                });
+                $('#edittools').modal('toggle');
+             }
          }, 500);
        }
    });
 }
 
 
-var data =[];
+var dataLang =[];
 function languagePrintInModal(element){
-    data.push(element);
-   $('.lang-select').val(data);
+   dataLang.push(element);
+   $('.lang-select').val(dataLang);
+}
+
+var dataTools =[];
+function toolsPrintInModal(element){
+   dataTools.push(element);
+   $('.tools-select').val(dataTools);
 }
 
 
@@ -295,7 +332,7 @@ function editAccount(account){
 }
 
 
-function updateLanguage(data){
+function updateLanguage_or_Tools(data){
    $.ajax({
       type: "POST",
       url: "upadateLanguage",

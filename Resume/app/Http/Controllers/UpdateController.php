@@ -154,11 +154,15 @@ class UpdateController extends Controller
     public function upadateLanguage(Request $request)
     {
         $resume = Resume::find($request->cvid);
-        $resume->language = $request->language;
+        if($request->type =="tools"){
+            $resume->tools = $request->tools;
+        }else{
+            $resume->language = $request->language;
+        }
         $resume->save();
 
         $notification = array(
-            'message' => 'Language added',
+            'message' => 'Data updated',
             'alert' => 'success'
         );
 

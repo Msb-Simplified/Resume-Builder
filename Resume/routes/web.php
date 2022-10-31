@@ -62,3 +62,7 @@ Route::post('/addAccount', [UpdateController::class,'addAccount']);
 
 Route::get('/loadLanguage/{cvid}', [UpdateController::class,'get']);
 Route::post('/upadateLanguage', [UpdateController::class,'upadateLanguage']);
+
+
+
+Route::get('/loadTools/{cvid}', [UpdateController::class,'get']);

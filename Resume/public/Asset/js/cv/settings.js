@@ -36,6 +36,10 @@ $(document).ready(function () {
         placeholder: "Chose Language",
         closeOnSelect: false,
     });
+    $(".tools-select").select2({
+        placeholder: "Chose Tools",
+        closeOnSelect: false,
+    });
     //########################  Pluggin Settings #####################
 });
 
