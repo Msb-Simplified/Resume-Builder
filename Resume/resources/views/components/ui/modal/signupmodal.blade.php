@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header text-center">
                 <div class="userloginheader">
-                    <p>Resume Builder</p>
+                    <p>Resume Builder Signup</p>
                     <x-btn class="float-right userloginclosebtn" data-dismiss="modal">Close Modal</x-btn>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                         <x-inputField id="signupuserpassword" type="text" placeholder="Password" />
                     </x-formgroup>
 
-                    <x-a class="siginmodalbtnopen control">Login</x-a>
+                    <x-a class="siginmodalbtnopen control text-dark">Login</x-a>
                     <x-btn class="float-right usersignupbtn">Signup</x-btn>
                 </form>
             </div>

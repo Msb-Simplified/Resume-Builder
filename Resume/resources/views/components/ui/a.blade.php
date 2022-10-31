@@ -1,1 +1,1 @@
-<a {{ $attributes->merge(['class' =>'text-success ']) }}>{{ $slot }}</a>
+<a {{ $attributes->merge(['class' =>'text-drak ']) }}>{{ $slot }}</a>
