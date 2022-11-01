@@ -164,6 +164,12 @@ $(document).ready(function () {
       });
 
       
+     $("#skillchangemodalbtn").click(function(){
+      var base = "loadSkills";
+      editCv(base);
+     });
+
+      
 
       
       
@@ -233,7 +239,16 @@ function editCv(base){
                   experencePrintInModal(element);
                });
                $('#editexperence').modal('toggle');
+             }else if(base=="loadSkills"){
+               $('#skillsdiv').html("");
+
+               response.forEach(element => {
+                  akillsPrintInModal(element);
+               });
+               $('#editskills').modal('toggle');
              }
+
+             
 
          }, 500);
        }
@@ -654,3 +669,28 @@ function addExperence(){
    });
 }
 
+
+
+function akillsPrintInModal(element){
+   var data = "";
+   data += '<div class="form-group">'+
+     '<div class="input-group">'+
+        '<div class="input-group-prepend">'+
+           '<div class="input-group-text">'+
+              '<span class="fas fa-solid fa-user-graduate"></span>'+
+           '</div>'+
+        '</div>'+
+        '<input value="'+ element.subject+'" class="form-control"   id="profile-accounts-name-input" type="text" placeholder="github">'+
+        '<input value='+ element.percent +' class="form-control" id="profile-accounts-handler-input" type="text" placeholder="ShishirBhuiyan">'+
+        '<div class="input-group-append">'+
+           '<div class="input-group-text bg-warning " style="cursor:pointer;" data-id="'+element.id+'"  onclick="editAccount(this)">'+
+              '<span class="fas fa-edit ml-1 "></span>'+
+           '</div>'+
+           '<div class="input-group-text bg-danger" style="cursor:pointer;" onclick="deleteAccount('+element.id+')">'+
+              '<span class="fas fa-trash ml-1 "></span>'+
+           '</div>'+
+        '</div>'+
+     '</div>'+
+  '</div>';
+  $('#skillsdiv').append(data);
+}

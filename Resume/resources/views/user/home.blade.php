@@ -8,7 +8,7 @@
 
 
 @section('content')
-<!-- Here include menubar -->
+
 @include('components.usernav')
 @include('components.example')
 
@@ -28,6 +28,8 @@
   <x-ui.modal.tools  id="edittools" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.education  id="editeducation" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.experence  id="editexperence" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
+  <x-ui.modal.skills  id="editskills" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
+
 @endif
 <div id="loader"></div>
 <div id="loader-black"></div>

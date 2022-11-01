@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\Education;
 use App\Models\Experence;
 use App\Models\Resume;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
@@ -249,6 +250,11 @@ class UpdateController extends Controller
             $response = $this->loadExperence($request->cvid);
             return $response;
         }
+    }
+
+    public function loadSkills($cvid){
+        $accounts = Skill::where('resume_id',$cvid)->get();
+        return response()->json($accounts);
     }
 
 }
