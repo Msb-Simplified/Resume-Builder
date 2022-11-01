@@ -281,4 +281,12 @@ class UpdateController extends Controller
         }
     }
 
+    public function skillDelete(Request $request){
+        $res = Skill::where('id',$request->id)->delete();
+        if($res){
+            $response = $this->loadSkills($request->cvid);
+            return $response;
+        }
+    }
+
 }

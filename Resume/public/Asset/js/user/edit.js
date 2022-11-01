@@ -195,7 +195,7 @@ $(document).ready(function () {
          },
          success: function (response) {
             $("#skill-name-field").val("");
-            $("#skill-percent-field").val("")
+            $("#skill-percent-field").val("");
 
 
             $('#skillsdiv').html("");
@@ -784,4 +784,46 @@ function editSkill(skill){
    });
 
 }
+
+
+function deleteSkill(accountId){
+   var jsonTest = {
+      id: accountId,
+      cvid:$("#cvid").val()
+   };
+
+   var datas = JSON.stringify(jsonTest);
+
+   $.ajax({
+       type: "POST",
+       url:"skillDelete",
+       data: datas,
+       cache: false,
+       dataType: "json",
+       contentType: "application/json; charset=utf-8",
+       headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+       },
+       beforeSend: function () {
+           $("#loader").css({ display: "block" });
+       },
+       success: function (response) {
+         console.log(response);
+         $('#skillsdiv').html("");
+
+         response.forEach(element => {
+            skillsPrintInModal(element);
+         });
+
+         toastr.success("Skill Deleted");
+
+         setTimeout(() => {
+            $("#loader").css({ display: "none" })
+         }, 1000);
+
+       }
+   });
+
+}
+
 

@@ -4,7 +4,7 @@
             <div class="modal-header text-center">
                 <div class="userloginheader">
                     <p>Skills Add</p>
-                    <img src="{{ asset('Asset/icon/close1.svg')}}" style="height:30px; width:30px;cursor:pointer;" data-dismiss="modal">
+                    <img src="{{ asset('Asset/icon/close1.svg')}}" style="height:30px; width:30px;cursor:pointer;" data-dismiss="modal" class="ModalCloseRelode">
                 </div>
             </div>
             <div class="modal-body">
