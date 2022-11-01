@@ -1,7 +1,7 @@
 $(document).ready(function () {
-   
     // $('#setingsmodal').modal('toggle');
     //########################  Pluggin Settings #####################
+
     $(".summernote").summernote({
         toolbar: [
             ["style", ["style"]],
@@ -49,14 +49,6 @@ $(document).ready(function () {
 
 
 
-function heightcheck() 
-{ 
-    var alertBorder = $("#alertBorder").height();
-    if(alertBorder < 1150){
-      return true;
-    }else{
-       return false;
-    }
-}
+
 
 

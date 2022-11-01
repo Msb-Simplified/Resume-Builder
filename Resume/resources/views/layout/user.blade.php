@@ -47,7 +47,9 @@
 
 
   <script>
+
     $(document).ready(function () {
+        
         $("#print").click(function () {
             $('#wrapper').printThis({
                 importCSS: true,
@@ -55,7 +57,10 @@
                 loadCSS: "/public/Asset/css/welcome.css" 
             });
         });
+
     });
+
+
   </script>
 
 <script>

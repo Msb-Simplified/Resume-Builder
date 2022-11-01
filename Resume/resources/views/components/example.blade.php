@@ -24,7 +24,7 @@
                             @if (isset($settings[0]->name))
                                {{ $userdata->userhasmanycvrelation[0]->name }}
                                @if(Session::has('usersession'))
-                                   <span style="cursor: pointer;" id="namechangemodalbtn">
+                                   <span style="cursor: pointer;" class="editspan" id="namechangemodalbtn">
                                    <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                                    </span>
                                @endif
@@ -37,7 +37,7 @@
                             @if (isset($settings[0]->title))
                               {{ $userdata->userhasmanycvrelation[0]->title }}
                               @if(Session::has('usersession'))
-                                  <span style="cursor: pointer;" id="titlechangemodalbtn">
+                                  <span style="cursor: pointer;" class="editspan" id="titlechangemodalbtn">
                                   <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                                   </span>
                               @endif
@@ -53,7 +53,7 @@
                 <div id="about">
                     <div class="aboutTitle">About
                         @if(Session::has('usersession'))
-                            <span style="cursor: pointer;" id="aboutchangemodalbtn">
+                            <span style="cursor: pointer;" class="editspan" id="aboutchangemodalbtn">
                             <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                             </span>
                         @endif
@@ -76,7 +76,7 @@
                 <div id="contact">
                     <h3 class="contactTitle">Contact
                         @if(Session::has('usersession'))
-                            <span style="cursor: pointer;" id="addresschangemodalbtn">
+                            <span style="cursor: pointer;" class="editspan" id="addresschangemodalbtn">
                             <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                             </span>
                         @endif
@@ -94,7 +94,7 @@
                 <div id="profilehandler">
                     <h3 class="handlerTitle">Profile
                          @if(Session::has('usersession'))
-                             <span style="cursor: pointer;" id="accountschangemodalbtn">
+                             <span style="cursor: pointer;" class="editspan" id="accountschangemodalbtn">
                              <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                              </span>
                          @endif
@@ -135,7 +135,7 @@
                 <div id="education">
                     <div class="educationTitle">Education
                         @if(Session::has('usersession'))
-                            <span style="cursor: pointer;" id="educhangemodalbtn">
+                            <span style="cursor: pointer;" class="editspan" id="educhangemodalbtn">
                             <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                             </span>
                         @endif
@@ -161,7 +161,7 @@
                 <div id="experence">
                     <div class="experenceTitle">Experence
                         @if(Session::has('usersession'))
-                            <span style="cursor: pointer;" id="experencechangemodalbtn">
+                            <span style="cursor: pointer;" class="editspan" id="experencechangemodalbtn">
                             <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                             </span>
                         @endif
@@ -188,7 +188,7 @@
                 <div id="skill">
                     <h3 class="skillTitle">Skills
                         @if(Session::has('usersession'))
-                            <span style="cursor: pointer;" id="skillchangemodalbtn">
+                            <span style="cursor: pointer;" class="editspan" id="skillchangemodalbtn">
                             <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                             </span>
                         @endif
@@ -218,7 +218,7 @@
             <div id="language">
                 <h3 class="languageTitle">Languages & Framework
                     @if(Session::has('usersession'))
-                        <span style="cursor: pointer;" id="langchangemodalbtn">
+                        <span style="cursor: pointer;" class="editspan" id="langchangemodalbtn">
                         <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                         </span>
                     @endif
@@ -239,7 +239,7 @@
             <div id="tools">
                 <h3 class="toolsTitle">Tools
                     @if(Session::has('usersession'))
-                        <span style="cursor: pointer;" id="toolschangemodalbtn">
+                        <span style="cursor: pointer;" class="editspan" id="toolschangemodalbtn">
                         <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                         </span>
                     @endif
@@ -263,7 +263,25 @@
 
 
 @once
-@push('styles')
-<link rel="stylesheet" href="{{ url('/Asset/css/components/example.css') }}">
-@endpush
+
+    @push('styles')
+         <link rel="stylesheet" href="{{ url('/Asset/css/components/example.css') }}">
+    @endpush
+
+    @push('scripts')
+        <script>
+            // heightcheck();
+            // function heightcheck() 
+            // {  
+            //     const alertBorder = document.getElementById("alertBorder").clientHeight;
+            //     alert(alertBorder);
+            //     // if(alertBorder > 1100){
+            //     //     toastr.error("To long!, please maintainace green border");
+            //     //     $("#wrapper").css({'border':'5px solid green'});
+            //     // }
+            // }
+        </script>
+    @endpush
+
 @endonce
+

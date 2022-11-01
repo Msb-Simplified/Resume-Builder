@@ -9,14 +9,14 @@
             </div>
             <div class="modal-body">
                 <div id="skillsdiv"></div>
-                <form id="skillsform">
+                <form id="skillsform" class="mt-4">
                     <x-formgroup>
                         <x-groupprepend><span class="fas fa-solid fa-user-graduate"></span>
                         </x-groupprepend>
-                        <x-inputField id="skill-name-field" type="text" placeholder="Skill name" />
-                        <x-inputField id="skill-percent-field" type="text" placeholder="60%" />
-                        <x-groupappend style="cursor: pointer;" class="AddSkillsBtn" type="button">Add</x-groupappend>
+                        <x-inputField id="skill-name-field" type="text" placeholder="New skill name" />
+                        <x-inputField id="skill-percent-field" type="text" placeholder="skill percent 50%" />
                     </x-formgroup>
+                    <a class="float-right AddSkillsBtn btn btn-success" type="button" style="margin-top: -10px">Add New</a>
                 </form>
             </div>
         </div>
