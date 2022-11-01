@@ -66,3 +66,9 @@ Route::post('/upadateLanguage', [UpdateController::class,'upadateLanguage']);
 
 
 Route::get('/loadTools/{cvid}', [UpdateController::class,'get']);
+Route::get('/loadEducation/{cvid}', [UpdateController::class,'loadEducation']);
+
+
+Route::post('/upadateEducation', [UpdateController::class,'upadateEducation']);
+Route::post('/addEducation', [UpdateController::class,'upadateEducation']);
+Route::post('/deleteEducation', [UpdateController::class,'deleteEducation']);

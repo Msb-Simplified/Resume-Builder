@@ -1,6 +1,9 @@
 $(document).ready(function () {
-
-
+  
+   $("#educationModalClose").click(function(){
+      location.reload(true);
+   });
+  
 
    $(".closemodalbtn").click(function(){
       $('.summernote').summernote('code','');
@@ -135,6 +138,18 @@ $(document).ready(function () {
          }
       });
      
+      $("#educhangemodalbtn").click(function(){
+         var base = "loadEducation";
+         editCv(base);
+      });
+
+      $(".update-education").click(function(){
+         const accountId = $(this).data("id");
+         alert(accountId);
+      });
+
+      
+      
 });
 
 function resetForm($form) {
@@ -185,6 +200,14 @@ function editCv(base){
                    toolsPrintInModal(element);
                 });
                 $('#edittools').modal('toggle');
+             }else if(base=="loadEducation"){
+               console.log(response);
+               $('#educationDiv').html("");
+
+               response.forEach(element => {
+                  educationPrintInModal(element);
+               });
+               $('#editeducation').modal('toggle');
              }
          }, 500);
        }
@@ -353,6 +376,117 @@ function updateLanguage_or_Tools(data){
         }
       }
   });
+}
+
+
+
+function educationPrintInModal(element){
+   var data = "";
+   var data = "<div class='mb-5'>";
+            data += '<textarea class="educationfield-'+element.id+' summernote">'+element.institution+'</textarea>';
+            data += '<button data-id='+element.id+' class="btn btn-warning  float-right update-education mt-2" type="button" onclick="updateEduBtn(this)">Update</button>';
+
+            data += '<button data-id='+element.id+' class="btn btn-danger  float-right update-education mt-2" type="button" onclick="deleteEduBtn(this)">Delete</button>';
+
+      data += "</div></br>";
+
+   $('#educationDiv').append(data);
+   $('.summernote').summernote({
+      toolbar: [
+          ["style", ["style"]],
+          [
+              "font",
+              [
+                  "bold",
+                  "italic",
+                  "underline",
+              ],
+          ],
+          // [ 'fontname', [ 'fontname' ] ],
+          ["fontsize", ["fontsize"]],
+          ["color", ["color"]],
+          ["para", ["ol", "ul", "paragraph"]],
+          ["table", ["table"]],
+          ['height', ['height']],
+          ["view", ["undo", "redo",]],
+          
+      ],
+   });
+}
+
+function updateEduBtn(ok){
+   // alert();
+   var btn = $(ok);
+   var btnid = $(ok).data("id");
+   var textareaClass = ".educationfield-"+btnid;
+   let textArea = $(textareaClass);
+   var textareaValue = $(textArea[0]).summernote('code');
+
+   var data = {
+     'id': btnid,
+     'institution':textareaValue,
+     'user_id':   $("#userid").val(),
+     'cvid':$("#cvid").val()
+   }
+
+   $.ajax({
+      type: "POST",
+      url: "upadateEducation",
+      data: data,
+      headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      beforeSend: function () {
+          $("#loader").css({ display: "block" });
+      },
+      success: function (response) {
+        if(response["alert"].includes("success")){
+           toastr.success(response["message"]);
+        }
+        setTimeout(() => {
+         $("#loader").css({ display: "none" });
+        }, 500);
+      }
+  });
+   return;
+}
+
+
+function deleteEduBtn(ok){
+   // alert();
+   var btn = $(ok);
+   var btnid = $(ok).data("id");
+
+   var data = {
+     'id': btnid,
+     'cvid':$("#cvid").val()
+   }
+
+   $.ajax({
+      type: "POST",
+      url: "deleteEducation",
+      data: data,
+      headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      beforeSend: function () {
+          $("#loader").css({ display: "block" });
+      },
+      success: function (response) {
+         $("#loader").css({ display: "none" });
+
+
+         $('#educationDiv').html("");
+         response.forEach(element => {
+            educationPrintInModal(element);
+         });
+
+         if(response["alert"].includes("success")){
+            toastr.success(response["message"]);
+         }
+      }
+  });
+   return;
 }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\Education;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -110,6 +111,10 @@ class UpdateController extends Controller
         $accounts = Account::where('resume_id',$cvid)->get();
         return response()->json($accounts);
     }
+    public function loadEducation($cvid){
+        $accounts = Education::where('resume_id',$cvid)->get();
+        return response()->json($accounts);
+    }
 
     public function accountDelete(Request $request){
         $res = Account::where('id',$request->id)->delete();
@@ -168,4 +173,43 @@ class UpdateController extends Controller
 
         return $notification;
     }
+
+
+    public function upadateEducation(Request $request){
+        if($request->id !=""){
+            $education = Education::find($request->id);
+            $education->institution = $request->institution;
+            $saved =  $education->save();
+            if($saved){
+                $notification = array(
+                    'message' => 'Institution updated',
+                    'alert' => 'success'
+                );
+                return $notification;
+            }
+        }else{
+            $education = new Education();
+            $education->resume_id = $request->cvid;
+            $education->institution = $request->institutionField;
+            $saved = $education->save();
+            
+            if($saved){
+                $notification = array(
+                    'message' => 'Education added successfully',
+                    'type' => 'success'
+                );
+                return Redirect::to('/')->with($notification);
+            }
+        }
+    }
+
+
+    public function deleteEducation(Request $request){
+        $res = Education::where('id',$request->id)->delete();
+        if($res){
+            $response = $this->loadEducation($request->cvid);
+            return $response;
+        }
+    }
+
 }

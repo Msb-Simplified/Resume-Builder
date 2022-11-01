@@ -2,11 +2,6 @@ $(document).ready(function () {
     // $('#setingsmodal').modal('toggle');
     //########################  Pluggin Settings #####################
     $(".summernote").summernote({
-        height: 250,
-        // airMode: true,
-        codemirror: {
-            theme: 'monokai'
-        },
         toolbar: [
             ["style", ["style"]],
             [
@@ -32,10 +27,17 @@ $(document).ready(function () {
         ],
     });
 
+    $('.summernote').on('summernote.blur', function() {
+        console.log('Editable area loses focus');
+    });
+
     $(".lang-select").select2({
         placeholder: "Chose Language",
         closeOnSelect: false,
     });
+
+
+
     $(".tools-select").select2({
         placeholder: "Chose Tools",
         closeOnSelect: false,
