@@ -48,18 +48,6 @@
 
   <script>
     $(document).ready(function () {
-        heightcheck();
-        function heightcheck() 
-        { 
-            var cvheight = $("#wrapper").height();
-            if(cvheight > 1100){
-              $("#wrapper").css({'border':'5px solid red','background-color':'red'});
-            
-            }
-            return false;
-        }
-
-        
         $("#print").click(function () {
             $('#wrapper').printThis({
                 importCSS: true,

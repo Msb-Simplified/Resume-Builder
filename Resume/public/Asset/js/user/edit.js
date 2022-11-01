@@ -1,5 +1,11 @@
 $(document).ready(function () {
-  
+   if(!heightcheck()){
+      toastr.error("To long!, please maintainace green border");
+      $("#wrapper").css({'border':'5px solid green'});
+   }else{
+   }
+
+
    $("#educationModalClose").click(function(){
       location.reload(true);
    });

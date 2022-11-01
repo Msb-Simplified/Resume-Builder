@@ -8,6 +8,10 @@
   color: #fff !important;
 }
 
+#alertBorder {
+  height: auto;
+}
+
 .wrapper {
   max-height: 1100px;
   max-width: 900px;

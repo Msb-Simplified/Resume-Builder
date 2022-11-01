@@ -1,4 +1,5 @@
 $(document).ready(function () {
+   
     // $('#setingsmodal').modal('toggle');
     //########################  Pluggin Settings #####################
     $(".summernote").summernote({
@@ -45,5 +46,17 @@ $(document).ready(function () {
     //########################  Pluggin Settings #####################
 });
 
+
+
+
+function heightcheck() 
+{ 
+    var alertBorder = $("#alertBorder").height();
+    if(alertBorder < 1150){
+      return true;
+    }else{
+       return false;
+    }
+}
 
 
