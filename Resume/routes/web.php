@@ -83,3 +83,4 @@ Route::post('/addExperence', [UpdateController::class,'upadateEexperence']);
 
 Route::get('/loadSkills/{cvid}', [UpdateController::class,'loadSkills']);
 Route::post('/updateSkill', [UpdateController::class,'updateSkill']);
+Route::post('/addSkill', [UpdateController::class,'addSkill']);

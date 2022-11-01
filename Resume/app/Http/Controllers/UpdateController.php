@@ -269,5 +269,16 @@ class UpdateController extends Controller
             return $response;
         }
     }
+    public function addSkill(Request $request){
+        $skill = new Skill();
+        $skill->resume_id = $request->cvid;
+        $skill->subject = $request->skillname;
+        $skill->percent = $request->skillpercent;
+        $save  = $skill->save();
+        if($save){
+            $response = $this->loadSkills($request->cvid);
+            return $response;
+        }
+    }
 
 }
