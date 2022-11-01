@@ -161,7 +161,7 @@
                 <div id="experence">
                     <div class="experenceTitle">Experence
                         @if(Session::has('usersession'))
-                            <span style="cursor: pointer;" id="expchangemodalbtn">
+                            <span style="cursor: pointer;" id="experencechangemodalbtn">
                             <img src="{{ asset('Asset/icon/pen.svg')}}" style="height: 15px; width:15px;">
                             </span>
                         @endif
@@ -173,12 +173,7 @@
                             @foreach ($experence as $exp)
                             <div class="item">
                                 <img src="{{ url('Asset/icon/ball.svg') }}" height="10px" width="10px">
-                                <p class="institute">
-                                    {{ $exp->subject }}
-                                </p>
-                                <p class="degree">
-                                    {{ $exp->details }}
-                                </p>
+                                <div class="">{!! $exp->experence !!}</div>
                             </div>
                             @endforeach
                         @else

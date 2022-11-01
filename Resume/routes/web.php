@@ -72,3 +72,9 @@ Route::get('/loadEducation/{cvid}', [UpdateController::class,'loadEducation']);
 Route::post('/upadateEducation', [UpdateController::class,'upadateEducation']);
 Route::post('/addEducation', [UpdateController::class,'upadateEducation']);
 Route::post('/deleteEducation', [UpdateController::class,'deleteEducation']);
+
+
+Route::get('/getExperence/{cvid}', [UpdateController::class,'loadExperence']);
+Route::post('/upadateEexperence', [UpdateController::class,'upadateEexperence']);
+Route::post('/deleteExperence', [UpdateController::class,'deleteExperence']);
+Route::post('/addExperence', [UpdateController::class,'upadateEexperence']);

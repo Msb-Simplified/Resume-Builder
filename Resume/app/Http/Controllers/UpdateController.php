@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\Education;
+use App\Models\Experence;
 use App\Models\Resume;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -208,6 +209,44 @@ class UpdateController extends Controller
         $res = Education::where('id',$request->id)->delete();
         if($res){
             $response = $this->loadEducation($request->cvid);
+            return $response;
+        }
+    }
+
+
+    public function loadExperence($cvid){
+        $accounts = Experence::where('resume_id',$cvid)->get();
+        return response()->json($accounts);
+    }
+
+    
+    public function upadateEexperence(Request $request){
+        if($request->id){
+            $experence = Experence::find($request->id);
+            $experence->experence = $request->experence;
+            $saved =  $experence->save();
+            if($saved){
+                $notification = array(
+                    'message' => 'Experence updated',
+                    'alert' => 'success'
+                );
+                return $notification;
+            }
+        }else{
+            $experence = new Experence();
+            $experence->resume_id = $request->cvid;
+            $experence->experence = $request->experence;
+            $saved = $experence->save();
+            if($saved){
+                $response = $this->loadExperence($request->cvid);
+                return $response;
+            }
+        }
+    }
+    public function deleteExperence(Request $request){
+        $res = Experence::where('id',$request->id)->delete();
+        if($res){
+            $response = $this->loadExperence($request->cvid);
             return $response;
         }
     }

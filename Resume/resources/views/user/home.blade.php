@@ -27,7 +27,7 @@
   <x-ui.modal.language  id="editlanguage" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.tools  id="edittools" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.education  id="editeducation" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
-
+  <x-ui.modal.experence  id="editexperence" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
 @endif
 <div id="loader"></div>
 <div id="loader-black"></div>

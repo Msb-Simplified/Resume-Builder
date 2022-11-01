@@ -6,7 +6,7 @@ $(document).ready(function () {
    }
 
 
-   $("#educationModalClose").click(function(){
+   $(".ModalCloseRelode").click(function(){
       location.reload(true);
    });
   
@@ -154,6 +154,17 @@ $(document).ready(function () {
          alert(accountId);
       });
 
+      $("#experencechangemodalbtn").click(function(){
+         //   $('#editexperence').modal('toggle');
+           var base = "getExperence";
+           editCv(base);
+      });
+      $(".addExperenceBtn").click(function(){
+         addExperence();
+      });
+
+      
+
       
       
 });
@@ -214,7 +225,16 @@ function editCv(base){
                   educationPrintInModal(element);
                });
                $('#editeducation').modal('toggle');
+             }else if(base=="getExperence"){
+               $('#experenceDiv').html("");
+               
+               console.log(response);
+               response.forEach(element => {
+                  experencePrintInModal(element);
+               });
+               $('#editexperence').modal('toggle');
              }
+
          }, 500);
        }
    });
@@ -419,7 +439,6 @@ function educationPrintInModal(element){
       ],
    });
 }
-
 function updateEduBtn(ok){
    // alert();
    var btn = $(ok);
@@ -456,8 +475,6 @@ function updateEduBtn(ok){
   });
    return;
 }
-
-
 function deleteEduBtn(ok){
    // alert();
    var btn = $(ok);
@@ -495,5 +512,145 @@ function deleteEduBtn(ok){
    return;
 }
 
+function experencePrintInModal(element){
+   var data = "";
+   var data = "<div class='mb-5'>";
+            data += '<textarea class="experencefield-'+element.id+' summernote">'+element.experence+'</textarea>';
+            data += '<button data-id='+element.id+' class="btn btn-warning  float-right update-experence mt-2" type="button" onclick="updateExperenceBtn(this)">Update</button>';
 
+            data += '<button data-id='+element.id+' class="btn btn-danger  float-right update-experence mt-2" type="button" onclick="deleteExperenceBtn(this)">Delete</button>';
+
+      data += "</div></br>";
+
+   $('#experenceDiv').append(data);
+   $('.summernote').summernote({
+      toolbar: [
+          ["style", ["style"]],
+          [
+              "font",
+              [
+                  "bold",
+                  "italic",
+                  "underline",
+              ],
+          ],
+          // [ 'fontname', [ 'fontname' ] ],
+          ["fontsize", ["fontsize"]],
+          ["color", ["color"]],
+          ["para", ["ol", "ul", "paragraph"]],
+          ["table", ["table"]],
+          ['height', ['height']],
+          ["view", ["undo", "redo",]],
+          
+      ],
+   });
+}
+function updateExperenceBtn(ok){
+   // alert();
+   var btnid = $(ok).data("id");
+   var textareaClass = ".experencefield-"+btnid;
+   let textArea = $(textareaClass);
+   var textareaValue = $(textArea[0]).summernote('code');
+
+   var data = {
+     'id': btnid,
+     'experence':textareaValue,
+     'user_id':   $("#userid").val(),
+     'cvid':$("#cvid").val()
+   }
+
+   $.ajax({
+      type: "POST",
+      url: "upadateEexperence",
+      data: data,
+      headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      beforeSend: function () {
+          $("#loader").css({ display: "block" });
+      },
+      success: function (response) {
+        if(response["alert"].includes("success")){
+           toastr.success(response["message"]);
+        }
+        setTimeout(() => {
+         $("#loader").css({ display: "none" });
+        }, 500);
+      }
+  });
+   return;
+}
+function deleteExperenceBtn(ok){
+   // alert();
+   var btnid = $(ok).data("id");
+
+   var data = {
+     'id': btnid,
+     'cvid':$("#cvid").val()
+   }
+
+   $.ajax({
+      type: "POST",
+      url: "deleteExperence",
+      data: data,
+      headers: {
+         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      beforeSend: function () {
+          $("#loader").css({ display: "block" });
+      },
+      success: function (response) {
+         $("#loader").css({ display: "none" });
+
+
+         $('#experenceDiv').html("");
+         response.forEach(element => {
+            experencePrintInModal(element);
+         });
+
+         if(response["alert"].includes("success")){
+            toastr.success(response["message"]);
+         }
+      }
+  });
+   return;
+}
+
+function addExperence(){
+   var textareaValue = $(".experenceField").summernote('code');
+
+   var jsonTest = {
+      'experence':textareaValue,
+      'cvid':$("#cvid").val(),
+   };
+   var datas = JSON.stringify(jsonTest);
+
+   $.ajax({
+       type: "POST",
+       url:"addExperence",
+       data: datas,
+       cache: false,
+       dataType: "json",
+       contentType: "application/json; charset=utf-8",
+       headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+       },
+       beforeSend: function () {
+           $("#loader").css({ display: "block" });
+       },
+       success: function (response) {
+
+         $('#experenceDiv').html("");
+         response.forEach(element => {
+            experencePrintInModal(element);
+         });
+
+         toastr.success("Accounts updated");
+         setTimeout(() => {
+            $("#loader").css({ display: "none" });
+            $(".experenceField").summernote('code',"");
+         }, 1000);
+       }
+   });
+}
 
