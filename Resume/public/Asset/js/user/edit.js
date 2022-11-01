@@ -165,8 +165,8 @@ $(document).ready(function () {
 
       
      $("#skillchangemodalbtn").click(function(){
-      var base = "loadSkills";
-      editCv(base);
+         var base = "loadSkills";
+         editCv(base);
      });
 
       
@@ -243,7 +243,7 @@ function editCv(base){
                $('#skillsdiv').html("");
 
                response.forEach(element => {
-                  akillsPrintInModal(element);
+                  skillsPrintInModal(element);
                });
                $('#editskills').modal('toggle');
              }
@@ -671,7 +671,7 @@ function addExperence(){
 
 
 
-function akillsPrintInModal(element){
+function skillsPrintInModal(element){
    var data = "";
    data += '<div class="form-group">'+
      '<div class="input-group">'+
@@ -680,13 +680,13 @@ function akillsPrintInModal(element){
               '<span class="fas fa-solid fa-user-graduate"></span>'+
            '</div>'+
         '</div>'+
-        '<input value="'+ element.subject+'" class="form-control"   id="profile-accounts-name-input" type="text" placeholder="github">'+
-        '<input value='+ element.percent +' class="form-control" id="profile-accounts-handler-input" type="text" placeholder="ShishirBhuiyan">'+
+        '<input value="'+ element.subject+'" class="form-control"   id="skill-name-input" type="text" placeholder="C++">'+
+        '<input value='+ element.percent +' class="form-control" id="skill-percent-input" type="text" placeholder="50%">'+
         '<div class="input-group-append">'+
-           '<div class="input-group-text bg-warning " style="cursor:pointer;" data-id="'+element.id+'"  onclick="editAccount(this)">'+
+           '<div class="input-group-text bg-warning " style="cursor:pointer;" data-id="'+element.id+'"  onclick="editSkill(this)">'+
               '<span class="fas fa-edit ml-1 "></span>'+
            '</div>'+
-           '<div class="input-group-text bg-danger" style="cursor:pointer;" onclick="deleteAccount('+element.id+')">'+
+           '<div class="input-group-text bg-danger" style="cursor:pointer;" onclick="deleteSkill('+element.id+')">'+
               '<span class="fas fa-trash ml-1 "></span>'+
            '</div>'+
         '</div>'+
@@ -694,3 +694,51 @@ function akillsPrintInModal(element){
   '</div>';
   $('#skillsdiv').append(data);
 }
+function editSkill(skill){
+   // console.log($("#profile-accounts-name-input-".accountId));
+
+   const skillId = $(skill).data("id");
+   let skillNameFild = $(skill).parent().siblings()[1];
+   let skillPercentFild = $(skill).parent().siblings()[2];
+
+   var jsonTest = {
+      id: skillId,
+      skillname:$(skillNameFild).val(),
+      skillPercent:$(skillPercentFild).val(),
+      cvid:$("#cvid").val()
+   };
+
+   var datas = JSON.stringify(jsonTest);
+
+   $.ajax({
+       type: "POST",
+       url:"updateSkill",
+       data: datas,
+       cache: false,
+       dataType: "json",
+       contentType: "application/json; charset=utf-8",
+       headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+       },
+       beforeSend: function () {
+           $("#loader").css({ display: "block" });
+       },
+       success: function (response) {
+         console.log(response);
+         $('#skillsdiv').html("");
+
+         response.forEach(element => {
+            skillsPrintInModal(element);
+         });
+
+         toastr.success("Skill updated");
+
+         setTimeout(() => {
+            $("#loader").css({ display: "none" })
+         }, 1000);
+
+       }
+   });
+
+}
+

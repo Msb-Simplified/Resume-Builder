@@ -257,4 +257,17 @@ class UpdateController extends Controller
         return response()->json($accounts);
     }
 
+    public function updateSkill(Request $request){
+        if($request->id){
+            $skill = Skill::find($request->id);
+            $skill->subject = $request->skillname;
+            $skill->percent = $request->skillPercent;
+            $saved =  $skill->save();
+        }
+        if($saved){
+            $response = $this->loadSkills($request->cvid);
+            return $response;
+        }
+    }
+
 }
