@@ -3,6 +3,7 @@
 use App\Http\Controllers\CreateCvController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PrintController;
+use App\Http\Controllers\sendCvController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UserSignupController;
@@ -85,3 +86,8 @@ Route::get('/loadSkills/{cvid}', [UpdateController::class,'loadSkills']);
 Route::post('/updateSkill', [UpdateController::class,'updateSkill']);
 Route::post('/addSkill', [UpdateController::class,'addSkill']);
 Route::post('/skillDelete', [UpdateController::class,'skillDelete']);
+
+
+
+
+Route::post('/send', [sendCvController::class, 'storeandsend'])->name('storeandsend');

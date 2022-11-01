@@ -29,6 +29,7 @@
   <x-ui.modal.education  id="editeducation" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.experence  id="editexperence" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
   <x-ui.modal.skills  id="editskills" cvid="{{ $userdata->userhasmanycvrelation[0]->id }}" />
+  <x-ui.modal.sendcv  id="sendcvmodalform"/>
 
 @endif
 <div id="loader"></div>

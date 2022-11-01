@@ -116,16 +116,12 @@
                                 <div class="item">
                                     <img src="{{ url('Asset/icon/ball.svg') }}" height="10px" width="10px">
                                     <p class="institute">{!! $edu->institution !!}</p>
-                                    <p class="institute">{!! $edu->degree !!}</p>
-                                    <p class="year">{{ $edu->year }}</p>
                                 </div>
                                 @endforeach
                             @else
                                 <div class="item">
                                     <img src="./Asset/icon/ball.svg" height="10px" width="10px">
                                     <p class="institute">Institution name</p>
-                                    <p class="degree">Course/Degree/Marks/etc</p>
-                                    <p class="year">Year-Year</p>
                                 </div>
                             @endif
                         </div>
@@ -136,15 +132,12 @@
                             <img class="linetwo" src="{{ asset('/public/Asset/icon/remove.png') }}">
                         </div>
                         <div class="content">
-                            @if (isset($settings[0]->education))
+                            @if (isset($settings[0]->experence))
                                 @foreach ($experence as $exp)
                                 <div class="item">
                                     <img src="{{ url('Asset/icon/ball.svg') }}" height="10px" width="10px">
                                     <p class="institute">
-                                        {{ $exp->subject }}
-                                    </p>
-                                    <p class="degree">
-                                        {{ $exp->details }}
+                                        {!! $exp->experence !!}
                                     </p>
                                 </div>
                                 @endforeach

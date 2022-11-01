@@ -149,6 +149,7 @@
                                 <img src="{{ url('Asset/icon/ball.svg') }}" height="10px" width="10px">
                                 <div class="institute">{!! $edu->institution !!}</div>
                             </div>
+                            
                             @endforeach
                         @else
                             <div class="item">
