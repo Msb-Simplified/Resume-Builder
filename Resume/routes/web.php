@@ -91,3 +91,4 @@ Route::post('/skillDelete', [UpdateController::class,'skillDelete']);
 
 
 Route::post('/send', [sendCvController::class, 'storeandsend'])->name('storeandsend');
+Route::get('/send', [sendCvController::class,'index']);

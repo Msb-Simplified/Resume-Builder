@@ -6,6 +6,7 @@ use App\Models\Account;
 use App\Models\Skill;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session as FacadesSession;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Education;
@@ -79,12 +80,40 @@ class sendCvController extends Controller
                 // Save CV
                 Pdf::loadView('pdf', ['userdata' => $userdata, 'skilldata' => $skilldata, 'settings' => $settings, 'educations' => $educations, 'experence' => $experence, 'accounts' => $accounts, 'lineimage' => $lineimage, 'profileimage' => $profileimage])->save(public_path($pdfName));
 
+
+                // Compact every array, in a singale array. Because laravel mail only accept one data.
+                $viewdata["userdata"] = $userdata;
+                $viewdata["skilldata"] = $skilldata;
+                $viewdata["settings"] = $settings;
+                $viewdata["educations"] = $educations;
+                $viewdata["experence"] = $experence;
+                $viewdata["accounts"] = $accounts;
+                $viewdata["lineimage"] = $lineimage;
+                $viewdata["profileimage"] = $profileimage;
+
+
+                $files = [
+                    public_path('Asset/pdfFolder/'.$userdata->id.'.pdf')
+                ];
+
+                Mail::send('mailview',['viewdata' => $viewdata], function($message)use($request,$files) {
+                    $message->to($request->sendingaddress, $request->sendingaddress)
+                             ->subject($request->sendingaddress." Resume");
+
+                            foreach ($files as $file) {
+                                $message->attach($file);
+                            }
+    
+                });
+
+
                 
                 $notification = array(
-                    'message' => 'Resume send successfully',
-                    'alert-type' => 'success'
+                    'message' => $userdata->id.'.pdf',
+                    'type' => 'success'
                 );
                 return Redirect::to('/')->with($notification);
+ 
             } else {
                 $notification = array(
                     'message' => 'First create your CV',
