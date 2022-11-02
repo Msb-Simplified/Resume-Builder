@@ -44,7 +44,7 @@ Resume Builder is a `PHP` framework `LARAVEL` Based dynamic web application. Her
 </details>
 
 <br><br>
-### <div style="text-align:center;">✨<a href="https://github.com/ShishirBhuiyan/Resume-Builder/blob/main/LICENSE" target="_blank">`License` - `Mit`</a> Copyright by Shishir Bhuiyan 2022<img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30px" style="margin-top:10px;"><br></div>
+### <div style="text-align:center;">✨<a href="https://github.com/ShishirBhuiyan/Resume-Builder/blob/main/LICENSE" target="_blank">License - Mit</a> Copyright by Shishir Bhuiyan 2022<img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30px" style="margin-top:10px;"><br></div>
 
   <details open><summary></summary>
 <div style="text-align:center;"><img src="https://i.postimg.cc/t42WnGjs/image.png" style="margin-top:10px;"></div></details>
