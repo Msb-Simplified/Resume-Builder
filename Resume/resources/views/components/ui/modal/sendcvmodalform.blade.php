@@ -15,7 +15,7 @@
                             <img src=" {{url('/Asset/msb.png')}}" alt="User Image">
                         </div>
 
-                        <form class="lockscreen-credentials" method="POST" action="/send">
+                        <form class="lockscreen-credentials" method="POST" action="/send" enctype="multipart/form-data">
                             @csrf
                             <div class="input-group">
                                 <input name="sendingaddress" type="email" class="form-control"
